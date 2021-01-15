@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Invite = () => {
+export const Event = () => {
 	const { store, actions } = useContext(Context);
 	const [name, setName] = useState(null);
 	const [email, setEmail] = useState(null);
@@ -12,7 +12,7 @@ export const Invite = () => {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Send Invite</h1>
+				<h1 className="text-center mt-5">Event Setup</h1>
 				<form onSubmit={e => e.preventDefault()}>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -25,32 +25,32 @@ export const Invite = () => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Email</label>
+						<label>Where</label>
 						<input
 							value={email}
 							type="email"
 							className="form-control"
-							placeholder="Enter email"
+							placeholder="Enter location"
 							onChange={e => setEmail(e.target.value)}
 						/>
 					</div>
 					<div className="form-group">
-						<label>Phone</label>
+						<label>When</label>
 						<input
 							value={phone}
 							type="phone"
 							className="form-control"
-							placeholder="Enter phone"
+							placeholder="Enter time"
 							onChange={e => setPhone(e.target.value)}
 						/>
 					</div>
 					<div className="form-group">
-						<label>Address</label>
+						<label>RSVP</label>
 						<input
 							value={address}
 							type="text"
 							className="form-control"
-							placeholder="Enter address"
+							placeholder="Enter people"
 							onChange={e => setAddress(e.target.value)}
 						/>
 					</div>
