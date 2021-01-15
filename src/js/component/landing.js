@@ -7,13 +7,19 @@ export const Landing = () => {
 	return (
 		<div className="container bg-dark">
 			<div className="row">
-				<div className="col bg-danger ">
+				<div className="col bg-danger padding-col">
 					<div className="mt-5 row justify-content-center">
-						<h1 className="text-center">{"Let's Hang"}</h1>
+						<strong>
+							<h1 className="text-center display-1">{"Let's"}</h1>
+							<br />
+							<h1 className="text-center display-1">{"Hang"}</h1>
+						</strong>
 					</div>
 				</div>
-				<div className="col bg-light">
-					<div className="row"> this is first row</div>
+				<div className="col bg-light padding-col">
+					<div className="row text-center">
+						<h1> Log in </h1>
+					</div>
 					<div className="row justify-content-center">
 						<Form>
 							<Form.Group controlId="formBasicEmail">
