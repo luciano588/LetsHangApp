@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "/workspace/LetsHangApp/src/styles/landing.scss";
+import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 export const Landing = () => {
@@ -16,28 +17,51 @@ export const Landing = () => {
 						</strong>
 					</div>
 				</div>
-				<div className="col bg-light padding-col">
-					<div className="row text-center">
-						<h1> Log in </h1>
-					</div>
-					<div className="row justify-content-center">
-						<Form>
-							<Form.Group controlId="formBasicEmail">
-								<Form.Control type="email" placeholder="Enter email" />
-								{/* <Form.Text className="text-muted">
+				<div className="col bg-white padding-col border border-secondary">
+					<div className="border border-secondary">
+						<div className="container">
+							<div className="display-inblock">
+								<h1> Log in </h1>
+								<p className="small bold">
+									Not registered with us yet? <a href="#">Sign up </a>
+								</p>
+							</div>
+							<div className="row justify-content-center">
+								<Form className="w-75">
+									<Form.Group controlId="formBasicEmail">
+										<Form.Control className="w-100" type="email" placeholder="Enter email" />
+										{/* <Form.Text className="text-muted">
 								{"We'll never share your email with anyone else."}
 							</Form.Text> */}
-							</Form.Group>
+									</Form.Group>
 
-							<Form.Group controlId="formBasicPassword">
-								<Form.Control type="password" placeholder="Password" />
-							</Form.Group>
-							<Button variant="primary" type="submit">
-								Submit
-							</Button>
-						</Form>
+									<Form.Group controlId="formBasicPassword">
+										<Form.Control type="password" placeholder="Password" />
+									</Form.Group>
+									<Button className="form-control" variant="primary" type="submit">
+										Submit
+									</Button>
+								</Form>
+							</div>
+							<div className="row" /> <strong>OR</strong>{" "}
+							<div className="row justify-content-center social-box">
+								<div className="w-75">
+									<a className="btn btn-block btn-social btn-twitter mt-4">
+										<i className="fab fa-twitter-square" />
+										Sign in with Twitter
+									</a>
+									<a className="btn btn-block btn-social btn-facebook">
+										<i className="fab fa-facebook" />
+										Sign in with facebook
+									</a>
+									<a className="btn btn-block btn-social btn-google mb-4">
+										<i className="fab fa-google" />
+										Sign in with google
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div className="row" /> This is third row
 				</div>
 			</div>
 		</div>
