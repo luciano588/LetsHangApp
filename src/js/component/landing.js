@@ -6,7 +6,7 @@ import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootst
 
 export const Landing = () => {
 	return (
-		<div className="container bg-dark">
+		<div className="container bg-dark align-box">
 			<div className="row">
 				<div className="col bg-danger padding-col">
 					<div className="mt-5 row justify-content-center">
@@ -38,9 +38,11 @@ export const Landing = () => {
 									<Form.Group controlId="formBasicPassword">
 										<Form.Control type="password" placeholder="Password" />
 									</Form.Group>
-									<Button className="form-control" variant="primary" type="submit">
-										Submit
-									</Button>
+									<Link to="/dash">
+										<Button className="form-control" variant="primary" type="submit">
+											Submit
+										</Button>
+									</Link>
 								</Form>
 							</div>
 							<div className="row" /> <strong>OR</strong>{" "}

@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 import { Landing } from "../component/landing";
 
 export const Home = () => (
-	<div className="text-center mt-5">
+	<div className="container text-center">
 		<Landing />
 	</div>
 );

@@ -7,8 +7,8 @@ h1 {
 }
 
 .padding-col {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .head-size {
@@ -26,4 +26,8 @@ h1 {
 .small, .text--small, label.small, small {
     font-size: 13px;
     line-height: 1.6;
+}
+
+.align-box {
+    margin-top: 40px;
 }
