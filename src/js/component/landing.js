@@ -20,9 +20,9 @@ export const Landing = () => {
 				<div className="col bg-white padding-col border border-secondary">
 					<div className="border border-secondary">
 						<div className="container">
-							<div className="display-inblock">
+							<div className="display-inblock text-left ml-5">
 								<h1> Log in </h1>
-								<p className="small bold">
+								<p className="small bold ml-1">
 									Not registered with us yet? <a href="#">Sign up </a>
 								</p>
 							</div>
@@ -40,12 +40,20 @@ export const Landing = () => {
 									</Form.Group>
 									<Link to="/dash">
 										<Button className="form-control" variant="primary" type="submit">
-											Submit
+											Log in
 										</Button>
 									</Link>
 								</Form>
 							</div>
-							<div className="row" /> <strong>OR</strong>{" "}
+							<div className="row justify-content-center mt-2">
+								<p className="small bold text-center">
+									<a href="#">Forgot password?</a>
+								</p>{" "}
+							</div>
+							<div className="row justify-content-center mt-2">
+								{" "}
+								<strong>OR</strong>{" "}
+							</div>
 							<div className="row justify-content-center social-box">
 								<div className="w-75">
 									<a className="btn btn-block btn-social btn-twitter mt-4">
