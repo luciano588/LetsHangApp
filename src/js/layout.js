@@ -22,8 +22,7 @@ const Layout = () => {
 		<div className="d-flex flex-coloumn justify-content-center">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-
-					<Navbar />
+					{/* <Navbar /> */}
 					<Invite />
 					<Event />
 
