@@ -5,7 +5,11 @@ import { Context } from "../store/appContext";
 import GoogleMap from "../component/googleMap";
 
 export const Dashboard = props => {
-	return <GoogleMap />;
+	return (
+		<div className="jumbotron">
+			<GoogleMap />
+		</div>
+	);
 };
 
 Dashboard.propTypes = {
