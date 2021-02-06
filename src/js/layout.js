@@ -9,6 +9,8 @@ import { Dashboard } from "./views/dashboard";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
+import { Invite } from "./component/form";
+import { Event } from "./component/event";
 
 //create your first component
 const Layout = () => {
@@ -20,6 +22,11 @@ const Layout = () => {
 		<div className="d-flex flex-coloumn justify-content-center">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+
+					<Navbar />
+					<Invite />
+					<Event />
+
 					<Switch>
 						<Route exact path="/">
 							<Home />
