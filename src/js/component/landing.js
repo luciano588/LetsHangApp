@@ -27,7 +27,10 @@ export const Landing = () => {
 							<div className="display-inblock text-left ml-5">
 								<h1> Log in </h1>
 								<p className="small bold ml-1">
-									Not registered with us yet? <a href="#">Sign up </a> <Signupmodal />
+									Not registered with us yet?{" "}
+									<a href="#">
+										<Signupmodal />{" "}
+									</a>
 								</p>
 							</div>
 							<div className="row justify-content-center">
