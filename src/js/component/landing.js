@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "/workspace/LetsHangApp/src/styles/landing.scss";
 import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import logo from "/workspace/LetsHangApp/src/img/logo.png";
+import { signupmodal, Signupmodal } from "/workspace/LetsHangApp/src/js/component/singupmodal.js";
 
 export const Landing = () => {
 	return (
@@ -10,20 +12,22 @@ export const Landing = () => {
 			<div className="row">
 				<div className="col bg-danger padding-col">
 					<div className="mt-5 row justify-content-center">
-						<strong>
+						<img className="logo" src={logo} alt="Logo" />
+
+						{/* <strong>
 							<h1 className="text-center display-1">{"Let's"}</h1>
 							<br />
 							<h1 className="text-center display-1">{"Hang"}</h1>
-						</strong>
+						</strong> */}
 					</div>
 				</div>
-				<div className="col bg-white padding-col border border-secondary">
+				<div className="col bg-white padding-col border border-secondary login-wrapper">
 					<div className="border border-secondary">
 						<div className="container">
 							<div className="display-inblock text-left ml-5">
 								<h1> Log in </h1>
 								<p className="small bold ml-1">
-									Not registered with us yet? <a href="#">Sign up </a>
+									Not registered with us yet? <a href="#">Sign up </a> <Signupmodal />
 								</p>
 							</div>
 							<div className="row justify-content-center">
