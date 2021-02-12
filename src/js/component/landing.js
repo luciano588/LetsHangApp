@@ -10,8 +10,8 @@ export const Landing = () => {
 	return (
 		<div className="container bg-dark align-box">
 			<div className="row">
-				<div className="col bg-danger padding-col">
-					<div className="mt-5 row justify-content-center">
+				<div className="col bg-light padding-col">
+					<div className="row justify-content-center">
 						<img className="logo" src={logo} alt="Logo" />
 
 						{/* <strong>
@@ -21,8 +21,8 @@ export const Landing = () => {
 						</strong> */}
 					</div>
 				</div>
-				<div className="col bg-white padding-col border border-secondary login-wrapper">
-					<div className="border border-secondary">
+				<div className="col bg-coral padding-col border border-secondary">
+					<div className="mt-5 containerd">
 						<div className="container">
 							<div className="display-inblock text-left ml-5">
 								<h1> Log in </h1>
@@ -57,11 +57,11 @@ export const Landing = () => {
 									<a href="#">Forgot password?</a>
 								</p>{" "}
 							</div>
-							<div className="row justify-content-center mt-2">
+							{/* <div className="row justify-content-center mt-2">
 								{" "}
 								<strong>OR</strong>{" "}
 							</div>
-							<div className="row justify-content-center social-box">
+							<div className="row justify-content-center">
 								<div className="w-75">
 									<a className="btn btn-block btn-social btn-twitter mt-4">
 										<i className="fab fa-twitter-square" />
@@ -76,7 +76,7 @@ export const Landing = () => {
 										Sign in with google
 									</a>
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

@@ -63,8 +63,8 @@ export const Signupmodal = props => {
 
 							<Col>
 								<Form.Control as="select" defaultValue="Jan">
-									<option>Choose...</option>
-									<option>...</option>
+									<option>x</option>
+									<option>2..</option>
 								</Form.Control>
 							</Col>
 							<Col>

@@ -38,10 +38,21 @@ h1 {
   width: 400px;
 }
 
-.login-wrapper{
-    .btn.btn-primary{
-        background-color: purple;
-    }
+.bg-coral {
+    background: lightcoral;
+}
 
+.containerd{
+
+    border-radius: 12px;
+    background-color: white;
+    // width: 390px;
+    // height: 355px;
+    text-align: center;
+    // box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border: 5px solid rgba(243, 238, 238, 0.2);
+    box-shadow: 2px 2px 5px gray;
+    background-color: #fff;
+    box-sizing: border-box;
 
 }
