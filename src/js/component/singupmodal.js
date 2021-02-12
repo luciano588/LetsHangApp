@@ -12,11 +12,15 @@ import FormControl from "react-bootstrap/FormControl";
 import FormCheck from "react-bootstrap/FormCheck";
 import FormFile from "react-bootstrap/FormFile";
 import { Jumbotron, Col, Grid, Panel, FormGroup } from "react-bootstrap";
+import { YearPicker, MonthPicker, DayPicker } from "react-dropdown-date";
 
 export const Signupmodal = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const [show, setShow] = useState(false);
+	const [year, setYear] = useState(null);
+	const [day, setDay] = useState(null);
+	const [month, setMonth] = useState(null);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -53,40 +57,58 @@ export const Signupmodal = props => {
 							<Form.Control placeholder="New password" />
 						</Form.Group>
 						<Form.Label>Birthday</Form.Label>
-						<Form.Row>
-							<Col>
-								<Form.Control as="select" defaultValue="Jan">
-									<option>Choose...</option>
-									<option>...</option>
-								</Form.Control>
-							</Col>
+						<Form.Group>
+							<Form.Row>
+								<Col>
+									<Form.Control as="select" defaultValue="Jan">
+										<option />
+									</Form.Control>
+								</Col>
 
-							<Col>
-								<Form.Control as="select" defaultValue="Jan">
-									<option>x</option>
-									<option>2..</option>
-								</Form.Control>
-							</Col>
-							<Col>
-								<Form.Control as="select" defaultValue="Jan">
-									<option>Choose...</option>
-									<option>...</option>
-								</Form.Control>
-							</Col>
-						</Form.Row>
+								<Col>
+									<Form.Control as="select" defaultValue="Jan">
+										<option>
+											<DayPicker
+												year={year}
+												month={month}
+												value={day}
+												onChange={day => {
+													// mandatory
+													this.setState({ day });
+													console.log(day);
+												}}
+												id={"day"}
+												name={"day"}
+												classes={"classes"}
+												optionClasses={"option classes"}
+											/>
+										</option>
+									</Form.Control>
+								</Col>
+								<Col>
+									<Form.Control as="select" defaultValue="Jan">
+										<option>Choose...</option>
+										<option>...</option>
+									</Form.Control>
+								</Col>
+							</Form.Row>
+						</Form.Group>
+						<Form.Label>Gender</Form.Label>
+
+						<Form.Check aria-label="option 1" />
+						<Form.Check type="radio" aria-label="radio 1" />
 					</Form>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
-						Close
-					</Button>
+				<Modal.Footer className="justify-content-center">
 					<Button
-						variant="primary"
+						className="w-50 justify-content-center"
+						variant="success"
+						size="lg"
 						onClick={() => {
 							actions.deleteContact(props.contactID);
 							setShow(false);
 						}}>
-						Save changes
+						<strong>Sign Up</strong>
 						{/* <a href="#" onClick={() => { func1(); func2();}}>Test Link</a> */}
 					</Button>
 				</Modal.Footer>
