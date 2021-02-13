@@ -5,14 +5,16 @@ import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 import { signupmodal, Signupmodal } from "./signupmodal.js";
+import { Demo } from "./demo.js";
 
 export const Landing = () => {
 	return (
-		<div className="container bg-dark align-box">
+		<div className="container-fluid bg-dark align-box">
 			<div className="row">
 				<div className="col bg-light padding-col">
-					<div className="row justify-content-center">
-						<img className="logo" src={logo} alt="Logo" />
+					<div className="row d-flex justify-content-center">
+						<Demo />
+						{/* <img className="logo" src={logo} alt="Logo" /> */}
 
 						{/* <strong>
 							<h1 className="text-center display-1">{"Let's"}</h1>
@@ -24,7 +26,7 @@ export const Landing = () => {
 				<div className="col bg-coral padding-col border border-secondary">
 					<div className="mt-5 containerd">
 						<div className="container">
-							<div className="display-inblock text-left ml-5">
+							<div className="display-inblock text-center">
 								<h1> Log in </h1>
 								<p className="small bold ml-1">
 									Not registered with us yet?{" "}

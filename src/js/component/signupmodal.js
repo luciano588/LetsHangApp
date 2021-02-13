@@ -57,7 +57,7 @@ export const Signupmodal = props => {
 							<br />
 							<Form.Control placeholder="New password" />
 						</Form.Group>
-						<Form.Label className="birthday-wrapper">Birthday</Form.Label>
+						<Form.Label className="heading-wrapper">Birthday</Form.Label>
 						<Form.Group>
 							<Form.Row>
 								<Col>
@@ -94,7 +94,7 @@ export const Signupmodal = props => {
 								</Col>
 							</Form.Row>
 						</Form.Group>
-						<Form.Label>Gender</Form.Label>
+						<Form.Label className="heading-wrapper">Gender</Form.Label>
 						<Form.Group>
 							<Form.Row>
 								<Col>
