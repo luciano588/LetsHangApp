@@ -6,6 +6,7 @@ import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootst
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 import { signupmodal, Signupmodal } from "./signupmodal.js";
 import { Demo } from "./demo.js";
+import { Card } from "./logocard.js";
 
 export const Landing = () => {
 	return (
@@ -13,7 +14,7 @@ export const Landing = () => {
 			<div className="row">
 				<div className="col bg-light padding-col">
 					<div className="row d-flex justify-content-center">
-						<Demo />
+						<Card />
 						{/* <img className="logo" src={logo} alt="Logo" /> */}
 
 						{/* <strong>
