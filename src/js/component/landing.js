@@ -7,7 +7,7 @@ import logo from "/workspace/LetsHangApp/src/img/logo.png";
 import { signupmodal, Signupmodal } from "./signupmodal.js";
 import { Demo } from "./demo.js";
 import { Card } from "./logocard.js";
-
+import { Loginbutton } from "./loginbutton.js";
 export const Landing = () => {
 	return (
 		<div className="container-fluid bg-dark align-box">
@@ -15,13 +15,6 @@ export const Landing = () => {
 				<div className="col bg-light padding-col">
 					<div className="row d-flex justify-content-center">
 						<Card />
-						{/* <img className="logo" src={logo} alt="Logo" /> */}
-
-						{/* <strong>
-							<h1 className="text-center display-1">{"Let's"}</h1>
-							<br />
-							<h1 className="text-center display-1">{"Hang"}</h1>
-						</strong> */}
 					</div>
 				</div>
 				<div className="col bg-coral padding-col border border-secondary">
@@ -40,18 +33,13 @@ export const Landing = () => {
 								<Form className="w-75">
 									<Form.Group controlId="formBasicEmail">
 										<Form.Control className="w-100" type="email" placeholder="Enter email" />
-										{/* <Form.Text className="text-muted">
-								{"We'll never share your email with anyone else."}
-							</Form.Text> */}
 									</Form.Group>
 
 									<Form.Group controlId="formBasicPassword">
 										<Form.Control type="password" placeholder="Password" />
 									</Form.Group>
 									<Link to="/dash">
-										<Button className="form-control" variant="primary" type="submit">
-											Log in
-										</Button>
+										<Loginbutton />
 									</Link>
 								</Form>
 							</div>

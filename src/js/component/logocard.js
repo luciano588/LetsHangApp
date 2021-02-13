@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useSpring, animated } from "react-spring";
 import PropTypes from "prop-types";
-import "/workspace/LetsHangApp/src/styles/logocard.css"; // // Icons made by Freepik from www.flaticon.com
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];

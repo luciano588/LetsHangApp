@@ -25,6 +25,8 @@ export const Signupmodal = props => {
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	// const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	// const daysForBirthday = days.map(days);
 
 	return (
 		<>
@@ -88,8 +90,8 @@ export const Signupmodal = props => {
 								</Col>
 								<Col>
 									<Form.Control as="select" defaultValue="Jan">
-										<option>Choose...</option>
-										<option>...</option>
+										<option />
+										{/* {days.map(days => "<option>" + days + "</option>")} */}
 									</Form.Control>
 								</Col>
 							</Form.Row>
@@ -98,13 +100,15 @@ export const Signupmodal = props => {
 						<Form.Group>
 							<Form.Row>
 								<Col>
-									<Form.Check
-										className="border-wrapper border"
-										type="radio"
-										label="Male"
-										name="formHorizontalRadios"
-										id="formHorizontalRadios1"
-									/>
+									<div className="border-wrapper border">
+										<label htmlFor="formHorizontalRadios1">Male</label>
+										<Form.Check
+											className="float-right"
+											type="radio"
+											name="formHorizontalRadios"
+											id="formHorizontalRadios1"
+										/>
+									</div>
 								</Col>
 								<Col>
 									<Form.Check
