@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import "/workspace/LetsHangApp/src/styles/signupmodal.scss";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -56,7 +57,7 @@ export const Signupmodal = props => {
 							<br />
 							<Form.Control placeholder="New password" />
 						</Form.Group>
-						<Form.Label>Birthday</Form.Label>
+						<Form.Label className="birthday-wrapper">Birthday</Form.Label>
 						<Form.Group>
 							<Form.Row>
 								<Col>
@@ -94,9 +95,40 @@ export const Signupmodal = props => {
 							</Form.Row>
 						</Form.Group>
 						<Form.Label>Gender</Form.Label>
-
-						<Form.Check aria-label="option 1" />
-						<Form.Check type="radio" aria-label="radio 1" />
+						<Form.Group>
+							<Form.Row>
+								<Col>
+									<Form.Check
+										className="border-wrapper border"
+										type="radio"
+										label="Male"
+										name="formHorizontalRadios"
+										id="formHorizontalRadios1"
+									/>
+								</Col>
+								<Col>
+									<Form.Check
+										className="border-wrapper border"
+										type="radio"
+										label="Female"
+										name="formHorizontalRadios"
+										id="formHorizontalRadios2"
+									/>
+								</Col>
+								<Col>
+									<Form.Check
+										className="border-wrapper border"
+										type="radio"
+										label="Custom"
+										name="formHorizontalRadios"
+										id="formHorizontalRadios3"
+									/>
+								</Col>
+							</Form.Row>
+						</Form.Group>
+						<Form.Label className="font-wrapper">
+							By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy.{" "}
+						</Form.Label>
 					</Form>
 				</Modal.Body>
 				<Modal.Footer className="justify-content-center">

@@ -4,7 +4,7 @@ import "/workspace/LetsHangApp/src/styles/landing.scss";
 import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
-import { signupmodal, Signupmodal } from "/workspace/LetsHangApp/src/js/component/singupmodal.js";
+import { signupmodal, Signupmodal } from "./signupmodal.js";
 
 export const Landing = () => {
 	return (
