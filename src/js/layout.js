@@ -17,6 +17,8 @@ const Layout = () => {
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
+	// Create function that uses Geolocation API to get current lat and lng for the user, then uploads to their user profile on the Server.
+
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>

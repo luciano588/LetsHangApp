@@ -2,22 +2,23 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
 
-const AnyReactComponent = ({ text }) => (
+const Marker = ({ url }) => (
 	<div
 		style={{
 			width: "50px",
 			height: "50px",
 			border: "1px solid red",
-			background: "red",
+			background: "blue",
 			color: "white",
-			borderRadius: "50%"
-		}}>
-		{text}
-	</div>
+			borderRadius: "50%",
+			backgroundImage: `url(${url})`,
+			backgroundSize: "cover"
+		}}
+	/>
 );
 
-AnyReactComponent.propTypes = {
-	text: PropTypes.string
+Marker.propTypes = {
+	url: PropTypes.string
 };
 
 class GoogleMap extends Component {
@@ -37,7 +38,16 @@ class GoogleMap extends Component {
 					bootstrapURLKeys={{ key: "AIzaSyBEAxk3n0Q0affZEve_2CqwFq-Q4xUS8hc" }}
 					defaultCenter={this.props.center}
 					defaultZoom={this.props.zoom}>
-					<AnyReactComponent lat={25.78} lng={-80.18} text="My Marker" />
+					{/* {
+                            props.store.friends.map((friend,index)=>
+                                <Marker
+                                    key={index}
+                                    lat={friend.lat}
+                                    lng={friend.lng}
+                                    url={friend.avatar}
+                            );
+                        } */}
+					<Marker lat={25.78} lng={-80.18} url="https://avatarfiles.alphacoders.com/873/thumb-87360.jpg" />
 				</GoogleMapReact>
 			</div>
 		);
