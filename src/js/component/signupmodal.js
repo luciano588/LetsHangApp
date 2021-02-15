@@ -67,8 +67,26 @@ export const Signupmodal = props => {
 							<br />
 							<Form.Control placeholder="Email or Mobile number" />
 							<br />
+							<Form.Control placeholder="User ID" />
+							<br />
 							<Form.Control placeholder="New password" />
+							<br />
+							<Form.Control placeholder="Street address" />
+							<br />
+							<Form.Control placeholder="Apt, unit, building, floor, etc" />
 						</Form.Group>
+						<Form.Row>
+							<Col>
+								<Form.Control placeholder="City" />
+							</Col>
+							<Col>
+								<Form.Control placeholder="State" />
+							</Col>
+							<Col>
+								<Form.Control placeholder="Zip Code" />
+							</Col>
+						</Form.Row>
+
 						<Form.Label className="heading-wrapper">Birthday</Form.Label>
 						<Form.Group>
 							<Form.Row>
