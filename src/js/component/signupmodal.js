@@ -25,8 +25,18 @@ export const Signupmodal = props => {
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	// const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-	// const daysForBirthday = days.map(days);
+	const birthdayMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const listMonth = birthdayMonth.map((birthdayMonth, index) => <option key={index}>{birthdayMonth}</option>);
+	const birthdayDay = [];
+	for (var i = 1; i <= 31; i++) {
+		birthdayDay.push(i);
+	}
+	const listDays = birthdayDay.map((birthdayDay, index) => <option key={index}>{birthdayDay}</option>);
+	const birthdayYear = [];
+	for (var i = 2021; i >= 1905; i--) {
+		birthdayYear.push(i);
+	}
+	const listYears = birthdayYear.map((birthdayYear, index) => <option key={index}>{birthdayYear}</option>);
 
 	return (
 		<>
@@ -63,35 +73,19 @@ export const Signupmodal = props => {
 						<Form.Group>
 							<Form.Row>
 								<Col>
-									<Form.Control as="select" defaultValue="Jan">
-										<option />
+									<Form.Control as="select" defaultValue="Month">
+										{listMonth}
 									</Form.Control>
 								</Col>
 
 								<Col>
-									<Form.Control as="select" defaultValue="Jan">
-										<option>
-											<DayPicker
-												year={year}
-												month={month}
-												value={day}
-												onChange={day => {
-													// mandatory
-													this.setState({ day });
-													console.log(day);
-												}}
-												id={"day"}
-												name={"day"}
-												classes={"classes"}
-												optionClasses={"option classes"}
-											/>
-										</option>
+									<Form.Control as="select" defaultValue="Day">
+										{listDays}
 									</Form.Control>
 								</Col>
 								<Col>
-									<Form.Control as="select" defaultValue="Jan">
-										<option />
-										{/* {days.map(days => "<option>" + days + "</option>")} */}
+									<Form.Control as="select" defaultValue="Year">
+										{listYears}
 									</Form.Control>
 								</Col>
 							</Form.Row>
@@ -101,9 +95,11 @@ export const Signupmodal = props => {
 							<Form.Row>
 								<Col>
 									<div className="border-wrapper border">
-										<label htmlFor="formHorizontalRadios1">Male</label>
+										<label className="ml-3 mt-1" htmlFor="formHorizontalRadios1">
+											Female
+										</label>
 										<Form.Check
-											className="float-right"
+											className="mr-2 mt-1 float-right"
 											type="radio"
 											name="formHorizontalRadios"
 											id="formHorizontalRadios1"
@@ -111,22 +107,30 @@ export const Signupmodal = props => {
 									</div>
 								</Col>
 								<Col>
-									<Form.Check
-										className="border-wrapper border"
-										type="radio"
-										label="Female"
-										name="formHorizontalRadios"
-										id="formHorizontalRadios2"
-									/>
+									<div className="border-wrapper border">
+										<label className="ml-3 mt-1" htmlFor="formHorizontalRadios1">
+											Male
+										</label>
+										<Form.Check
+											className="mr-2 mt-1 float-right"
+											type="radio"
+											name="formHorizontalRadios"
+											id="formHorizontalRadios1"
+										/>
+									</div>
 								</Col>
 								<Col>
-									<Form.Check
-										className="border-wrapper border"
-										type="radio"
-										label="Custom"
-										name="formHorizontalRadios"
-										id="formHorizontalRadios3"
-									/>
+									<div className="border-wrapper border">
+										<label className="ml-3 mt-1" htmlFor="formHorizontalRadios1">
+											Custom
+										</label>
+										<Form.Check
+											className="mr-2 mt-1 float-right"
+											type="radio"
+											name="formHorizontalRadios"
+											id="formHorizontalRadios1"
+										/>
+									</div>
 								</Col>
 							</Form.Row>
 						</Form.Group>
