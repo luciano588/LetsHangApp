@@ -66,7 +66,7 @@ export const Signupmodal = props => {
 						</Form.Row>
 						<Form.Group className="" controlId="formGridAddress1">
 							<br />
-							<Form.Control type="email" placeholder="Email or Mobile number" />
+							<Form.Control type="email" placeholder="Email" />
 							<br />
 							<Form.Control placeholder="User ID" />
 							<br />
