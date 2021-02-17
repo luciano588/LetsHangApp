@@ -37,8 +37,68 @@ export const Signupmodal = props => {
 		birthdayYear.push(i);
 	}
 	const listYears = birthdayYear.map((birthdayYear, index) => <option key={index}>{birthdayYear}</option>);
-	// const userState = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri', "Montana" ,"Nebraska",'Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
-	// const listStates = userState.map((userState,index) => <option key={index}>{userState}</option>  );
+	//
+	const userState = [
+		"New Jersey",
+		"Alabama",
+		"Alaska",
+		"American Samoa",
+		"Arizona",
+		"Arkansas",
+		"California",
+		"Colorado",
+		"Connecticut",
+		"Delaware",
+		"District of Columbia",
+		"Federated States of Micronesia",
+		"Florida",
+		"Georgia",
+		"Guam",
+		"Hawaii",
+		"Idaho",
+		"Illinois",
+		"Indiana",
+		"Iowa",
+		"Kansas",
+		"Kentucky",
+		"Louisiana",
+		"Maine",
+		"Marshall Islands",
+		"Maryland",
+		"Massachusetts",
+		"Michigan",
+		"Minnesota",
+		"Mississippi",
+		"Missouri",
+		"Montana",
+		"North Carolina",
+		" North Dakota",
+		"Nebraska",
+		"New Hampshire",
+		"New Jersey",
+		"New Mexico",
+		"Nevada",
+		"New York",
+		"Ohio",
+		"Oklahoma",
+		"Oregon",
+		"Pennsylvania",
+		"Puerto Rico",
+		"Rhode Island",
+		"South Carolina",
+		"South Dakota",
+		"Tennessee",
+		"Texas",
+		"Utah",
+		"Virginia",
+		"Virgin Islands",
+		"Vermont",
+		"Washington",
+		"Wisconsin",
+		"West Virginia",
+		"Wyoming"
+	];
+	const listStates = userState.map((userState, index) => <option key={index}>{userState}</option>);
 	return (
 		<>
 			<span onClick={handleShow}>Sign up</span>
@@ -81,7 +141,9 @@ export const Signupmodal = props => {
 								<Form.Control placeholder="City" />
 							</Col>
 							<Col>
-								<Form.Control as="select" placeholder="State" />
+								<Form.Control as="select" placeholder="State">
+									{listStates}
+								</Form.Control>
 							</Col>
 							<Col>
 								<Form.Control placeholder="Zip Code" />
