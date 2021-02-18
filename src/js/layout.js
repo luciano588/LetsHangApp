@@ -6,7 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Dashboard } from "./views/dashboard";
-import { Profile } from "./views/profile";
+import { Userprofile } from "./views/userprofile";
 import { Eventmain } from "./views/eventmain";
 import injectContext from "./store/appContext";
 
@@ -34,8 +34,8 @@ const Layout = () => {
 						<Route exact path="/dash">
 							<Dashboard />
 						</Route>
-						<Route exact path="/profile">
-							<Profile />
+						<Route exact path="/userprofile">
+							<Userprofile />
 						</Route>
 						<Route exact path="/eventmain">
 							<Eventmain />

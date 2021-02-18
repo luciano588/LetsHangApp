@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-import "../../styles/profile.scss";
+import "../../styles/userprofile.scss";
 
-export const Profile = props => {
+export const Userprofile = props => {
 	const { store, actions } = useContext(Context);
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
