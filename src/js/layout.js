@@ -13,6 +13,7 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import { Invite } from "./component/form";
 import { Event } from "./component/event";
+import { Profile } from "./views/profile";
 
 //create your first component
 const Layout = () => {
@@ -28,8 +29,8 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/invite">
+							<Invite />
 						</Route>
 						<Route exact path="/dash">
 							<Dashboard />
@@ -42,6 +43,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/dash/profile">
+							<Profile />
+						</Route>
+						<Route exact path="/event">
+							<Event />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
