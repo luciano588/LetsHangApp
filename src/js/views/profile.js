@@ -6,6 +6,17 @@ import { Context } from "../store/appContext";
 import "../../styles/profile.scss";
 
 export const Profile = props => {
+	const { store, actions } = useContext(Context);
+	const [modal, setModal] = useState(false);
+	const [selectedContact, setSelectedContact] = useState(null);
+	const [name, setName] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [phone, setPhone] = useState(null);
+	const [address, setAddress] = useState(null);
+	const [city, setCity] = useState(null);
+	const [zipcode, setZipcode] = useState(null);
+	const [state, setState] = useState(null);
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -16,8 +27,10 @@ export const Profile = props => {
 								<div className="user-box">
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
-								<h5 className="mb-1 text-white">Jhon Doe</h5>
-								<h6 className="text-light">UI/UX Engineer</h6>
+								<h5 className="mb-1 text-white">
+									{/* {profile.firstname} */}
+									{/* {profile.lastname} */}
+								</h5>
 							</div>
 							<div className="card-body">
 								<ul className="list-group shadow-none">
@@ -26,7 +39,7 @@ export const Profile = props => {
 											<i className="fa fa-phone-square" />
 										</div>
 										<div className="list-details">
-											<span>9910XXXXXX</span>
+											{/* <span>{profile.phone}</span> */}
 											<small>Mobile Number</small>
 										</div>
 									</li>
@@ -35,7 +48,7 @@ export const Profile = props => {
 											<i className="fa fa-envelope" />
 										</div>
 										<div className="list-details">
-											<span>info@example.com</span>
+											{/* <span>{profile.email}</span> */}
 											<small>Email Address</small>
 										</div>
 									</li>
@@ -100,7 +113,7 @@ export const Profile = props => {
 										data-target="#profile"
 										data-toggle="pill"
 										className="nav-link active show">
-										<i className="icon-user" /> <span className="hidden-xs">Profile</span>
+										<i className="icon-user" /> <span className="hidden-xs">Friends</span>
 									</a>
 								</li>
 								<li className="nav-item">
@@ -127,12 +140,12 @@ export const Profile = props => {
 									<h5 className="mb-3">User Profile</h5>
 									<div className="row">
 										<div className="col-md-6">
-											<h6>About</h6>
+											{/* <h6>About</h6>
 											<p>Web Designer, UI/UX Engineer</p>
 											<h6>Hobbies</h6>
-											<p>Indie music, skiing and hiking. I love the great outdoors.</p>
+											<p>Indie music, skiing and hiking. I love the great outdoors.</p> */}
 										</div>
-										<div className="col-md-6">
+										{/* <div className="col-md-6">
 											<span className="badge badge-primary">
 												<i className="fa fa-user" /> 900 Followers
 											</span>
@@ -142,7 +155,7 @@ export const Profile = props => {
 											<span className="badge badge-danger">
 												<i className="fa fa-eye" /> 245 Views
 											</span>
-										</div>
+										</div> */}
 										<div className="col-md-12">
 											<h5 className="mt-2 mb-3">
 												<span className="fa fa-clock-o ion-clock float-right" /> Recent Activity
@@ -242,7 +255,12 @@ export const Profile = props => {
 												First name
 											</label>
 											<div className="col-lg-9">
-												<input className="form-control" type="text" value="Mark" />
+												<input
+													value={firstname}
+													className="form-control"
+													type="text"
+													onChange={e => setFirstname(e.target.value)}
+												/>
 											</div>
 										</div>
 										<div className="form-group row">
@@ -250,13 +268,23 @@ export const Profile = props => {
 												Last name
 											</label>
 											<div className="col-lg-9">
-												<input className="form-control" type="text" value="Jhonsan" />
+												<input
+													value={lastname}
+													className="form-control"
+													type="text"
+													onChange={e => setLastname(e.target.value)}
+												/>
 											</div>
 										</div>
 										<div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label">Email</label>
 											<div className="col-lg-9">
-												<input className="form-control" type="email" value="mark@example.com" />
+												<input
+													value={email}
+													className="form-control"
+													type="email"
+													onChange={e => setEmail(e.target.value)}
+												/>
 											</div>
 										</div>
 										<div className="form-group row">
@@ -283,8 +311,9 @@ export const Profile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value=""
+													value={address}
 													placeholder="Street"
+													onChange={e => setAddress(e.target.value)}
 												/>
 											</div>
 										</div>
@@ -294,16 +323,27 @@ export const Profile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value=""
+													value={city}
 													placeholder="City"
+													onChange={e => setCity(e.target.value)}
 												/>
 											</div>
 											<div className="col-lg-3">
 												<input
 													className="form-control"
 													type="text"
-													value=""
+													value={state}
 													placeholder="State"
+													onChange={e => setState(e.target.value)}
+												/>
+											</div>
+											<div className="col-lg-6">
+												<input
+													className="form-control"
+													type="text"
+													value={zipcode}
+													placeholder="Zip Code"
+													onChange={e => setZipcode(e.target.value)}
 												/>
 											</div>
 										</div>
@@ -347,4 +387,9 @@ export const Profile = props => {
 			</div>
 		</div>
 	);
+};
+
+Profile.PropTypes = {
+	onDelete: PropTypes.func,
+	contact: PropTypes.object
 };

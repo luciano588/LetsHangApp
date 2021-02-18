@@ -22,7 +22,7 @@ export const Eventmain = props => {
 					</div>
 					<div>
 						<a href="#" className="btn btn-success btn-sm">
-							Follow
+							Add Event
 						</a>
 						<a href="#" className="btn btn-default icon-btn md-btn-flat btn-sm ml-1">
 							<i className="ion ion-md-mail" />
