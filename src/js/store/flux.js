@@ -12,24 +12,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-            ],
-            event: [
-                {
-                    id = 01,
-                    invitees = ["ana","Julios", "Jack"],
-                    eventname= "Bday Party!",
-                    eventstreetaddress = "Ocean drive",
-                    eventunitno = "578",
-                    eventstate = "FL",
-                    eventcity = "Miami Beach",
-                    eventzipcode = "33589",
-                    eventdescription = "My Party.",
-                    eventpicture = "145487.jpg",
-                    eventstatus = "Going",
-                    eventcomments = ["cool", "nice place"]
-               }
-
-            ]
+			],
+			event: [
+				{
+					id: 11,
+					invitees: ["ana", "Julios", "Jack"],
+					eventname: "Bday Party!",
+					eventstreetaddress: "Ocean drive",
+					eventunitno: "578",
+					eventstate: "FL",
+					eventcity: "Miami Beach",
+					eventzipcode: "33589",
+					eventdescription: "My Party.",
+					eventpicture: "145487.jpg",
+					eventstatus: "Going",
+					eventcomments: ["cool", "nice place"]
+				}
+			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
