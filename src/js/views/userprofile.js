@@ -6,16 +6,30 @@ import { Context } from "../store/appContext";
 import "../../styles/userprofile.scss";
 
 export const Userprofile = props => {
+	let params = useParams();
+
 	const { store, actions } = useContext(Context);
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
-	const [name, setName] = useState(null);
-	const [email, setEmail] = useState(null);
+	const [firstname, setName] = useState("");
+	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState(null);
 	const [address, setAddress] = useState(null);
 	const [city, setCity] = useState(null);
 	const [zipcode, setZipcode] = useState(null);
 	const [state, setState] = useState(null);
+
+	useEffect(
+		() => {
+			for (let profile of store.profiles) {
+				if (params.profileId == profile.id) {
+					setAddress(profile.address);
+					setFirstname(profile.firstname);
+				}
+			}
+		},
+		[store.profiles, params.profileId]
+	);
 
 	return (
 		<div className="container">
@@ -27,10 +41,7 @@ export const Userprofile = props => {
 								<div className="user-box">
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
-								<h5 className="mb-1 text-white">
-									{/* {profile.firstname} */}
-									{/* {profile.lastname} */}
-								</h5>
+								<h5 className="mb-1 text-white" value={(profile.firstname, profile.lastname)} />
 							</div>
 							<div className="card-body">
 								<ul className="list-group shadow-none">
@@ -389,7 +400,7 @@ export const Userprofile = props => {
 	);
 };
 
-// Profile.PropTypes = {
-// 	onDelete: PropTypes.func,
+// Userprofile.PropTypes = {
+// 	firstname: PropTypes.string,
 // 	contact: PropTypes.object
 // };

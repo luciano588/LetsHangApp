@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/eventmain.scss";
-import { Invite } from "./component/form";
+import { Invite } from "../component/form";
 
 export const Eventmain = props => {
 	return (
@@ -19,12 +19,7 @@ export const Eventmain = props => {
 						</a>
 					</div>
 					<div>
-						<Link to="./component/form">
-							<a href="#" className="btn btn-success btn-sm">
-								Add Event
-							</a>
-							<a href="#" className="btn btn-default icon-btn md-btn-flat btn-sm ml-1" />
-						</Link>
+						<Invite />
 					</div>
 				</div>
 			</div>

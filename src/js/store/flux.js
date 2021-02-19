@@ -1,10 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			profiles: [
 				{
-					title: "FIRST",
-					background: "white",
+					id: 1,
+					firstname: "FIRST",
+					lastname: "white",
 					initial: "white"
 				},
 				{
