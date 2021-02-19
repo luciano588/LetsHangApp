@@ -4,9 +4,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			profiles: [
 				{
 					id: 1,
-					firstname: "FIRST",
-					lastname: "white",
-					initial: "white"
+					firstname: "First",
+					lastname: "Last",
+					initial: "white",
+					address: "7590 nw 40th st",
+					email: "where@gmail.com",
+					phone: "236-963-6963",
+					city: "Madrid",
+					zipcode: "36325",
+					state: "FL"
 				},
 				{
 					title: "SECOND",

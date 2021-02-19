@@ -11,13 +11,14 @@ export const Userprofile = props => {
 	const { store, actions } = useContext(Context);
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
-	const [firstname, setName] = useState("");
+	const [firstname, setFirstname] = useState("");
+	const [lastname, setLastname] = useState("");
 	const [email, setEmail] = useState("");
-	const [phone, setPhone] = useState(null);
-	const [address, setAddress] = useState(null);
-	const [city, setCity] = useState(null);
-	const [zipcode, setZipcode] = useState(null);
-	const [state, setState] = useState(null);
+	const [phone, setPhone] = useState("");
+	const [address, setAddress] = useState("");
+	const [city, setCity] = useState("");
+	const [zipcode, setZipcode] = useState("");
+	const [state, setState] = useState("");
 
 	useEffect(
 		() => {
@@ -25,6 +26,12 @@ export const Userprofile = props => {
 				if (params.profileId == profile.id) {
 					setAddress(profile.address);
 					setFirstname(profile.firstname);
+					setLasname(profile.lastname);
+					setEmail(profile.email);
+					setPhone(profile.phone);
+					setCity(profile.city);
+					setZipcode(profile.zipcode);
+					setState(profile.state);
 				}
 			}
 		},
@@ -50,7 +57,7 @@ export const Userprofile = props => {
 											<i className="fa fa-phone-square" />
 										</div>
 										<div className="list-details">
-											{/* <span>{profile.phone}</span> */}
+											<span>{profile.phone}</span>
 											<small>Mobile Number</small>
 										</div>
 									</li>
@@ -59,7 +66,7 @@ export const Userprofile = props => {
 											<i className="fa fa-envelope" />
 										</div>
 										<div className="list-details">
-											{/* <span>{profile.email}</span> */}
+											<span>{profile.email}</span>
 											<small>Email Address</small>
 										</div>
 									</li>
@@ -267,7 +274,7 @@ export const Userprofile = props => {
 											</label>
 											<div className="col-lg-9">
 												<input
-													// value={firstname}
+													value={firstname}
 													className="form-control"
 													type="text"
 													onChange={e => setFirstname(e.target.value)}
@@ -280,7 +287,7 @@ export const Userprofile = props => {
 											</label>
 											<div className="col-lg-9">
 												<input
-													// value={lastname}
+													value={lastname}
 													className="form-control"
 													type="text"
 													onChange={e => setLastname(e.target.value)}
@@ -291,7 +298,7 @@ export const Userprofile = props => {
 											<label className="col-lg-3 col-form-label form-control-label">Email</label>
 											<div className="col-lg-9">
 												<input
-													// value={email}
+													value={email}
 													className="form-control"
 													type="email"
 													onChange={e => setEmail(e.target.value)}
@@ -322,7 +329,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													// value={address}
+													value={address}
 													placeholder="Street"
 													onChange={e => setAddress(e.target.value)}
 												/>
@@ -334,7 +341,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													// value={city}
+													value={city}
 													placeholder="City"
 													onChange={e => setCity(e.target.value)}
 												/>
@@ -343,7 +350,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													// value={state}
+													value={state}
 													placeholder="State"
 													onChange={e => setState(e.target.value)}
 												/>
@@ -352,7 +359,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													// value={zipcode}
+													value={zipcode}
 													placeholder="Zip Code"
 													onChange={e => setZipcode(e.target.value)}
 												/>
@@ -400,7 +407,13 @@ export const Userprofile = props => {
 	);
 };
 
-// Userprofile.PropTypes = {
-// 	firstname: PropTypes.string,
-// 	contact: PropTypes.object
-// };
+Userprofile.PropTypes = {
+	firstname: PropTypes.string,
+	lastname: PropTypes.string,
+	phone: PropTypes.string,
+	email: PropTypes.string,
+	address: PropTypes.string,
+	city: PropTypes.string,
+	state: PropTypes.string,
+	zipcode: PropTypes.string
+};
