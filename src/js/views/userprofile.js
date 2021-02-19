@@ -256,7 +256,7 @@ export const Userprofile = props => {
 											</label>
 											<div className="col-lg-9">
 												<input
-													value={firstname}
+													// value={firstname}
 													className="form-control"
 													type="text"
 													onChange={e => setFirstname(e.target.value)}
@@ -269,7 +269,7 @@ export const Userprofile = props => {
 											</label>
 											<div className="col-lg-9">
 												<input
-													value={lastname}
+													// value={lastname}
 													className="form-control"
 													type="text"
 													onChange={e => setLastname(e.target.value)}
@@ -280,7 +280,7 @@ export const Userprofile = props => {
 											<label className="col-lg-3 col-form-label form-control-label">Email</label>
 											<div className="col-lg-9">
 												<input
-													value={email}
+													// value={email}
 													className="form-control"
 													type="email"
 													onChange={e => setEmail(e.target.value)}
@@ -311,7 +311,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={address}
+													// value={address}
 													placeholder="Street"
 													onChange={e => setAddress(e.target.value)}
 												/>
@@ -323,7 +323,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={city}
+													// value={city}
 													placeholder="City"
 													onChange={e => setCity(e.target.value)}
 												/>
@@ -332,7 +332,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={state}
+													// value={state}
 													placeholder="State"
 													onChange={e => setState(e.target.value)}
 												/>
@@ -341,7 +341,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={zipcode}
+													// value={zipcode}
 													placeholder="Zip Code"
 													onChange={e => setZipcode(e.target.value)}
 												/>
@@ -389,7 +389,7 @@ export const Userprofile = props => {
 	);
 };
 
-Profile.PropTypes = {
-	onDelete: PropTypes.func,
-	contact: PropTypes.object
-};
+// Profile.PropTypes = {
+// 	onDelete: PropTypes.func,
+// 	contact: PropTypes.object
+// };
