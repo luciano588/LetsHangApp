@@ -7,7 +7,7 @@ import GoogleMap from "../component/googleMap";
 export const Dashboard = props => {
 	return (
 		<>
-			<div className="jumbotron">
+			<div className="d-flex justify-content-center">
 				<GoogleMap />
 			</div>
 		</>
