@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white",
 					address: "7590 nw 40th st",
 					email: "where@gmail.com",
+					username: "bobby1",
 					phone: "236-963-6963",
 					city: "Madrid",
 					zipcode: "36325",

@@ -4,8 +4,9 @@ import { Context } from "../store/appContext";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-export const Event = () => {
+export const Friend = () => {
 	const { store, actions } = useContext(Context);
+	const [show, setShow] = useState(false);
 	const [name, setName] = useState(null);
 	const [email, setEmail] = useState(null);
 	const [phone, setPhone] = useState(null);
@@ -17,55 +18,25 @@ export const Event = () => {
 	return (
 		<>
 			<Button className="btn btn-success btn-sm" onClick={handleShow}>
-				Accpet Invite
+				Add A Friend
 			</Button>
 
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						<h1 className="text-center mt-5">Event Setup</h1>
+						<h1 className="text-center mt-5">Send Invite</h1>
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<form onSubmit={e => e.preventDefault()}>
 						<div className="form-group">
-							<label>Full Name</label>
-							<input
-								value={name}
-								type="text"
-								className="form-control"
-								placeholder="Full Name"
-								onChange={e => setName(e.target.value)}
-							/>
-						</div>
-						<div className="form-group">
-							<label>Where</label>
+							<label>Email</label>
 							<input
 								value={email}
 								type="email"
 								className="form-control"
-								placeholder="Enter location"
+								placeholder="Enter email"
 								onChange={e => setEmail(e.target.value)}
-							/>
-						</div>
-						<div className="form-group">
-							<label>When</label>
-							<input
-								value={phone}
-								type="phone"
-								className="form-control"
-								placeholder="Enter time"
-								onChange={e => setPhone(e.target.value)}
-							/>
-						</div>
-						<div className="form-group">
-							<label>RSVP</label>
-							<input
-								value={address}
-								type="text"
-								className="form-control"
-								placeholder="Enter people"
-								onChange={e => setAddress(e.target.value)}
 							/>
 						</div>
 					</form>
@@ -78,7 +49,7 @@ export const Event = () => {
 						onClick={() => {
 							setShow(false);
 						}}>
-						Accept Invite
+						Add Friend
 					</Button>
 				</Modal.Footer>
 			</Modal>

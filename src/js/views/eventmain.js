@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/eventmain.scss";
 import { Invite } from "../component/form";
+import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 export const Eventmain = props => {
 	return (
@@ -13,10 +14,7 @@ export const Eventmain = props => {
 				<div className="d-flex justify-content-between align-items-center py-4">
 					<div>
 						{/* potential spot for logo??? */}
-						<a href="#" className="d-inline-block text-dark">
-							<strong>234</strong>
-							<span className="text-muted">followers</span>
-						</a>
+						<img className="eventlogo" src={logo} alt="Logo" />
 					</div>
 					<div>
 						<Invite />
@@ -37,8 +35,8 @@ export const Eventmain = props => {
 						<h4 className="font-weight-bold my-4">Mike Greene</h4>
 
 						<div className="text-muted mb-4">
-							Lorem ipsum dolor sit amet, nibh suavitate qualisque ut nam. Ad harum primis electram duo,
-							porro principes ei has.
+							this is for the event main page where we can display a bunch of information about invites or
+							even the map?????
 						</div>
 					</div>
 
@@ -85,40 +83,46 @@ export const Eventmain = props => {
 						<div className="row">
 							<div className="col-md-6" />
 							<div className="col-md-12">
-								<table className="table table-hover table-striped">
-									<tbody>
-										<tr>
-											<td>
-												<strong>Abby</strong> joined ACME Project Team in{" "}
-												<strong>`Collaboration`</strong>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong>Gary</strong> deleted My Board1 in{" "}
-												<strong>`Discussions`</strong>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong>Kensington</strong> deleted MyBoard3 in{" "}
-												<strong>`Discussions`</strong>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong>John</strong> deleted My Board1 in{" "}
-												<strong>`Discussions`</strong>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong>Skell</strong> deleted his post Look at Why this is.. in{" "}
-												<strong>`Discussions`</strong>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<div className="list-group">
+									<div className="list-group-item d-flex align-items-center">
+										<img
+											src="https://bootdey.com/img/Content/avatar/avatar1.png"
+											alt=""
+											width="50px"
+											className="rounded-sm ml-n2"
+										/>
+										<div className="flex-fill pl-3 pr-3">
+											<div>
+												<a href="#" className="text-dark font-weight-600">
+													Ethel Wilkes
+												</a>
+											</div>
+											<div className="text-muted fs-13px">North Raundspic</div>
+										</div>
+										<a href="#" className="btn btn-outline-primary">
+											Send Invite
+										</a>
+									</div>
+									<div className="list-group-item d-flex align-items-center">
+										<img
+											src="https://bootdey.com/img/Content/avatar/avatar2.png"
+											alt=""
+											width="50px"
+											className="rounded-sm ml-n2"
+										/>
+										<div className="flex-fill pl-3 pr-3">
+											<div>
+												<a href="#" className="text-dark font-weight-600">
+													Shanaya Hansen
+												</a>
+											</div>
+											<div className="text-muted fs-13px">North Raundspic</div>
+										</div>
+										<a href="#" className="btn btn-outline-primary">
+											Send Invite
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 						{/* <!--/row--> */}

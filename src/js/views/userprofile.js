@@ -4,13 +4,16 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/userprofile.scss";
+import { Friend } from "../component/friendinvite";
 
 export const Userprofile = props => {
 	let params = useParams();
-
 	const { store, actions } = useContext(Context);
+	let profiles = store.profiles;
+
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
+	const [username, setUsername] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [lastname, setLastname] = useState("");
 	const [email, setEmail] = useState("");
@@ -24,14 +27,15 @@ export const Userprofile = props => {
 		() => {
 			for (let profile of store.profiles) {
 				if (params.profileId == profile.id) {
-					setAddress(profile.address);
-					setFirstname(profile.firstname);
-					setLasname(profile.lastname);
-					setEmail(profile.email);
-					setPhone(profile.phone);
-					setCity(profile.city);
-					setZipcode(profile.zipcode);
-					setState(profile.state);
+					setAddress(profiles.address);
+					setFirstname(profiles.firstname);
+					setLastname(profiles.lastname);
+					setEmail(profiles.email);
+					setUsername(profiles.username);
+					setPhone(profiles.phone);
+					setCity(profiles.city);
+					setZipcode(profiles.zipcode);
+					setState(profiles.state);
 				}
 			}
 		},
@@ -48,7 +52,7 @@ export const Userprofile = props => {
 								<div className="user-box">
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
-								<h5 className="mb-1 text-white" value={(profile.firstname, profile.lastname)} />
+								<h5 className="mb-1 text-white" value={(profiles.firstname, profiles.lastname)} />
 							</div>
 							<div className="card-body">
 								<ul className="list-group shadow-none">
@@ -57,7 +61,7 @@ export const Userprofile = props => {
 											<i className="fa fa-phone-square" />
 										</div>
 										<div className="list-details">
-											<span>{profile.phone}</span>
+											<span>{profiles.phone}</span>
 											<small>Mobile Number</small>
 										</div>
 									</li>
@@ -66,7 +70,7 @@ export const Userprofile = props => {
 											<i className="fa fa-envelope" />
 										</div>
 										<div className="list-details">
-											<span>{profile.email}</span>
+											<span>{profiles.email}</span>
 											<small>Email Address</small>
 										</div>
 									</li>
@@ -75,47 +79,11 @@ export const Userprofile = props => {
 											<i className="fa fa-globe" />
 										</div>
 										<div className="list-details">
-											<span>www.example.com</span>
-											<small>Website Address</small>
+											<span>{profiles.username}</span>
+											<small>User Name</small>
 										</div>
 									</li>
 								</ul>
-								<div className="row text-center mt-4">
-									<div className="col p-2">
-										<h4 className="mb-1 line-height-5">154</h4>
-										<small className="mb-0 font-weight-bold">Projects</small>
-									</div>
-									<div className="col p-2">
-										<h4 className="mb-1 line-height-5">2.2k</h4>
-										<small className="mb-0 font-weight-bold">Followers</small>
-									</div>
-									<div className="col p-2">
-										<h4 className="mb-1 line-height-5">9.1k</h4>
-										<small className="mb-0 font-weight-bold">Views</small>
-									</div>
-								</div>
-							</div>
-							<div className="card-footer text-center">
-								<a
-									href="javascript:void()"
-									className="btn-social btn-facebook waves-effect waves-light m-1">
-									<i className="fa fa-facebook" />
-								</a>
-								<a
-									href="javascript:void()"
-									className="btn-social btn-google-plus waves-effect waves-light m-1">
-									<i className="fa fa-google-plus" />
-								</a>
-								<a
-									href="javascript:void()"
-									className="list-inline-item btn-social btn-behance waves-effect waves-light">
-									<i className="fa fa-behance" />
-								</a>
-								<a
-									href="javascript:void()"
-									className="list-inline-item btn-social btn-dribbble waves-effect waves-light">
-									<i className="fa fa-dribbble" />
-								</a>
 							</div>
 						</div>
 					</div>
@@ -155,9 +123,9 @@ export const Userprofile = props => {
 							</ul>
 							<div className="tab-content p-3">
 								<div className="tab-pane active show" id="profile">
-									<h5 className="mb-3">User Profile</h5>
 									<div className="row">
 										<div className="col-md-6">
+											<Friend />
 											{/* <h6>About</h6>
 											<p>Web Designer, UI/UX Engineer</p>
 											<h6>Hobbies</h6>
@@ -176,42 +144,27 @@ export const Userprofile = props => {
 										</div> */}
 										<div className="col-md-12">
 											<h5 className="mt-2 mb-3">
-												<span className="fa fa-clock-o ion-clock float-right" /> Recent Activity
+												<span className="fa fa-clock-o ion-clock float-right" /> Current Friends
 											</h5>
-											<table className="table table-hover table-striped">
-												<tbody>
-													<tr>
-														<td>
-															<strong>Abby</strong> joined ACME Project Team in{" "}
-															<strong>`Collaboration`</strong>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<strong>Gary</strong> deleted My Board1 in{" "}
-															<strong>`Discussions`</strong>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<strong>Kensington</strong> deleted MyBoard3 in{" "}
-															<strong>`Discussions`</strong>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<strong>John</strong> deleted My Board1 in{" "}
-															<strong>`Discussions`</strong>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<strong>Skell</strong> deleted his post Look at Why this
-															is.. in <strong>`Discussions`</strong>
-														</td>
-													</tr>
-												</tbody>
-											</table>
+
+											<div className="list-group">
+												<div className="list-group-item d-flex align-items-center">
+													<img
+														src="https://bootdey.com/img/Content/avatar/avatar1.png"
+														alt=""
+														width="50px"
+														className="rounded-sm ml-n2"
+													/>
+													<div className="flex-fill pl-3 pr-3">
+														<div>
+															<a href="#" className="text-dark font-weight-600">
+																Ethel Wilkes
+															</a>
+														</div>
+														<div className="text-muted fs-13px">North Raundspic</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 									{/* <!--/row--> */}
@@ -315,10 +268,15 @@ export const Userprofile = props => {
 										</div>
 										<div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label">
-												Website
+												Birthday
 											</label>
 											<div className="col-lg-9">
-												<input className="form-control" type="url" value="" />
+												<input
+													className="form-control"
+													type="text"
+													value={username}
+													onChange={e => setUsername(e.target.value)}
+												/>
 											</div>
 										</div>
 										<div className="form-group row">
@@ -337,7 +295,7 @@ export const Userprofile = props => {
 										</div>
 										<div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label" />
-											<div className="col-lg-6">
+											<div className="col-lg-4">
 												<input
 													className="form-control"
 													type="text"
@@ -350,18 +308,18 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={state}
-													placeholder="State"
-													onChange={e => setState(e.target.value)}
+													value={zipcode}
+													placeholder="Zipcode"
+													onChange={e => setZipcode(e.target.value)}
 												/>
 											</div>
-											<div className="col-lg-6">
+											<div className="col-lg-2">
 												<input
 													className="form-control"
 													type="text"
-													value={zipcode}
-													placeholder="Zip Code"
-													onChange={e => setZipcode(e.target.value)}
+													value={state}
+													placeholder="State"
+													onChange={e => setState(e.target.value)}
 												/>
 											</div>
 										</div>
@@ -412,6 +370,7 @@ Userprofile.PropTypes = {
 	lastname: PropTypes.string,
 	phone: PropTypes.string,
 	email: PropTypes.string,
+	username: PropTypes.string,
 	address: PropTypes.string,
 	city: PropTypes.string,
 	state: PropTypes.string,

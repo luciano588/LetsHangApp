@@ -69,23 +69,50 @@ export const Invite = () => {
 								onChange={e => setAddress(e.target.value)}
 							/>
 						</div>
-						<button
-							onClick={e =>
-								actions.addContact({
-									agenda_slug: "armando_agenda",
-									full_name: name,
-									email: email,
-									phone: phone,
-									address: address
-								})
-							}
-							type="submit"
-							className="btn btn-primary form-control">
-							Submit
-						</button>
-						<Link className="mt-3 w-100 text-center" to="/">
-							Go back
-						</Link>
+						<div className="form-group">
+							<label>Friends</label>
+
+							<div className="list-group">
+								<div className="list-group-item d-flex align-items-center">
+									<img
+										src="https://bootdey.com/img/Content/avatar/avatar1.png"
+										alt=""
+										width="50px"
+										className="rounded-sm ml-n2"
+									/>
+									<div className="flex-fill pl-3 pr-3">
+										<div>
+											<a href="#" className="text-dark font-weight-600">
+												Ethel Wilkes
+											</a>
+										</div>
+										<div className="text-muted fs-13px">North Raundspic</div>
+									</div>
+									<a href="#" className="btn btn-outline-primary">
+										Send Invite
+									</a>
+								</div>
+								<div className="list-group-item d-flex align-items-center">
+									<img
+										src="https://bootdey.com/img/Content/avatar/avatar2.png"
+										alt=""
+										width="50px"
+										className="rounded-sm ml-n2"
+									/>
+									<div className="flex-fill pl-3 pr-3">
+										<div>
+											<a href="#" className="text-dark font-weight-600">
+												Shanaya Hansen
+											</a>
+										</div>
+										<div className="text-muted fs-13px">North Raundspic</div>
+									</div>
+									<a href="#" className="btn btn-outline-primary">
+										Send Invite
+									</a>
+								</div>
+							</div>
+						</div>
 					</form>
 				</Modal.Body>
 				<Modal.Footer className="justify-content-center">
