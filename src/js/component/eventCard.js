@@ -1,11 +1,12 @@
 import React, { Component, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
+
 export const Event_card = props => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div>
-			<div className="card" style={{ width: "50rem" }}>
+			<div className="card float-left" style={{ width: "30rem" }}>
 				<img
 					src="https://media.architecturaldigest.com/photos/5820f27652e72b09473c2e82/master/w_1600%2Cc_limit/miami-restaurants-01.JPG"
 					className="card-img-top"
@@ -19,7 +20,7 @@ export const Event_card = props => {
 					<li className="list-group-item">{props.eventdescription}</li>
 					<li className="list-group-item">
 						<h5>Event Details</h5>
-						<p>{props.eventstreetaddress}</p>
+						<p>Addresss: {props.eventstreetaddress}</p>
 					</li>
 					<li className="list-group-item">Who is going</li>
 					<li className="list-group-item">Invited list</li>

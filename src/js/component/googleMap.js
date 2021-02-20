@@ -47,7 +47,11 @@ class GoogleMap extends Component {
                                     url={friend.avatar}
                             );
                         } */}
-					<Marker lat={25.78} lng={-80.18} url="https://avatarfiles.alphacoders.com/873/thumb-87360.jpg" />
+					<Marker
+						lat={25.78}
+						lng={-80.18}
+						url="https://cdn.iconscout.com/icon/premium/png-512-thumb/businesswoman-76-774606.png"
+					/>
 				</GoogleMapReact>
 			</div>
 		);
