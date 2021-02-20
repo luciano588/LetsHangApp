@@ -1,6 +1,6 @@
 import React, { Component, useContext } from "react";
 import PropTypes from "prop-types";
-
+import { Context } from "../store/appContext";
 export const Event_card = props => {
 	const { store, actions } = useContext(Context);
 	return (
@@ -19,7 +19,7 @@ export const Event_card = props => {
 					<li className="list-group-item">{props.eventdescription}</li>
 					<li className="list-group-item">
 						<h5>Event Details</h5>
-						<p>{props.eventaddress}</p>
+						<p>{props.eventstreetaddress}</p>
 					</li>
 					<li className="list-group-item">Who is going</li>
 					<li className="list-group-item">Invited list</li>
