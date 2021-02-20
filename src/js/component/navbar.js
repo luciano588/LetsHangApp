@@ -15,7 +15,7 @@ export const Navbar = () => {
 		// </nav>
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container-fluid">
-				<a className="navbar-brand" href="#">
+				<a className="navbar-brand" href="/dash">
 					<img src="https://i.imgur.com/8dWJ7Tv.png" />
 				</a>
 				<button
@@ -36,7 +36,7 @@ export const Navbar = () => {
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#">
+							<a className="nav-link active" aria-current="page" href="/event">
 								New Event
 							</a>
 						</li>
