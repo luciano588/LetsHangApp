@@ -30,23 +30,13 @@ export const Invite = () => {
 				<Modal.Body>
 					<form onSubmit={e => e.preventDefault()}>
 						<div className="form-group">
-							<label>Full Name</label>
+							<label>Your Name</label>
 							<input
 								value={name}
 								type="text"
 								className="form-control"
 								placeholder="Full Name"
 								onChange={e => setName(e.target.value)}
-							/>
-						</div>
-						<div className="form-group">
-							<label>Email</label>
-							<input
-								value={email}
-								type="email"
-								className="form-control"
-								placeholder="Enter email"
-								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
@@ -60,7 +50,17 @@ export const Invite = () => {
 							/>
 						</div>
 						<div className="form-group">
-							<label>Address</label>
+							<label>Location Name</label>
+							<input
+								value={location}
+								type="location"
+								className="form-control"
+								placeholder="Enter location"
+								onChange={e => setLocation(e.target.value)}
+							/>
+						</div>
+						<div className="form-group">
+							<label>Location Address</label>
 							<input
 								value={address}
 								type="text"

@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/userprofile.scss";
 import { Friend } from "../component/friendinvite";
+import { Card } from "../component/friendcard";
 
 export const Userprofile = props => {
 	let params = useParams();
@@ -147,6 +148,7 @@ export const Userprofile = props => {
 												<span className="fa fa-clock-o ion-clock float-right" /> Current Friends
 											</h5>
 
+											{/* FRIEND LIST */}
 											<div className="list-group">
 												<div className="list-group-item d-flex align-items-center">
 													<img
@@ -163,6 +165,9 @@ export const Userprofile = props => {
 														</div>
 														<div className="text-muted fs-13px">North Raundspic</div>
 													</div>
+													<a href="#" className="btn btn-outline-primary">
+														Remove Friend
+													</a>
 												</div>
 											</div>
 										</div>

@@ -29,7 +29,7 @@ export const Event = () => {
 				<Modal.Body>
 					<form onSubmit={e => e.preventDefault()}>
 						<div className="form-group">
-							<label>Full Name</label>
+							<label>Location Name</label>
 							<input
 								value={name}
 								type="text"

@@ -24,7 +24,7 @@ export const Friend = () => {
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						<h1 className="text-center mt-5">Send Invite</h1>
+						<h1 className="text-center mt-5">Add friend</h1>
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>

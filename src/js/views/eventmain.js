@@ -82,6 +82,8 @@ export const Eventmain = props => {
 					<div className="tab-pane active show" id="profile">
 						<div className="row">
 							<div className="col-md-6" />
+
+							{/* FRIEND LIST */}
 							<div className="col-md-12">
 								<div className="list-group">
 									<div className="list-group-item d-flex align-items-center">
@@ -99,9 +101,7 @@ export const Eventmain = props => {
 											</div>
 											<div className="text-muted fs-13px">North Raundspic</div>
 										</div>
-										<a href="#" className="btn btn-outline-primary">
-											Send Invite
-										</a>
+										<a href="#" className="btn btn-outline-primary" />
 									</div>
 									<div className="list-group-item d-flex align-items-center">
 										<img
@@ -118,9 +118,7 @@ export const Eventmain = props => {
 											</div>
 											<div className="text-muted fs-13px">North Raundspic</div>
 										</div>
-										<a href="#" className="btn btn-outline-primary">
-											Send Invite
-										</a>
+										<a href="#" className="btn btn-outline-primary" />
 									</div>
 								</div>
 							</div>
