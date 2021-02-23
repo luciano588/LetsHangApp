@@ -77,8 +77,11 @@
 		]
 	},
 	"dependencies": {
+		"@material-ui/core": "^4.11.3",
+		"@react-google-maps/api": "^2.1.1",
 		"bootstrap": "^4.3.1",
 		"google-map-react": "^2.1.9",
+		"google-maps-react": "^2.0.6",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-dom": "^16.8.4",

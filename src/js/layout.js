@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { Dashboard2 } from "./views/dashboard2";
 import { Dashboard } from "./views/dashboard";
 import { Event } from "./views/eventPage";
 import injectContext from "./store/appContext";
@@ -33,12 +34,16 @@ const Layout = () => {
 						<Route exact path="/dash">
 							<Dashboard />
 						</Route>
+						<Route exact path="/dash2">
+							<Dashboard2 />
+						</Route>
 						<Route exact path="/event">
 							<Event />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
