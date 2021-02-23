@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "/workspace/LetsHangApp/src/styles/landing.scss";
 import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
+import { Context } from "../store/appContext";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 import { signupmodal, Signupmodal } from "./signupmodal.js";
@@ -9,6 +10,10 @@ import { Demo } from "./demo.js";
 import { Card } from "./logocard.js";
 import { Loginbutton } from "./loginbutton.js";
 export const Landing = () => {
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="container-fluid bg-dark align-box">
 			<div className="row">
@@ -32,14 +37,23 @@ export const Landing = () => {
 							<div className="row justify-content-center">
 								<Form className="w-75">
 									<Form.Group controlId="formBasicEmail">
-										<Form.Control className="w-100" type="email" placeholder="Enter email" />
+										<Form.Control
+											className="w-100"
+											type="email"
+											placeholder="Enter email"
+											onChange={e => setEmail(e.target.value)}
+										/>
 									</Form.Group>
 
 									<Form.Group controlId="formBasicPassword">
-										<Form.Control type="password" placeholder="Password" />
+										<Form.Control
+											type="password"
+											placeholder="Password"
+											onChange={e => setPassword(e.target.value)}
+										/>
 									</Form.Group>
 									<Link to="/dash">
-										<Loginbutton />
+										<Loginbutton email={email} password={password} />
 									</Link>
 								</Form>
 							</div>

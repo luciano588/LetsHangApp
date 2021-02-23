@@ -2,7 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const baseURL = "https://letshangapp.herokuapp.com";
 	return {
 		store: {
-			contact: []
+			contact: [],
+			token: null,
+			protected: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -28,6 +30,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			exampleProtected: () => {
+				const store = getStore();
+				fetch(`${baseURL}/protected`, {
+					headers: {
+						"Content-type": "application/json",
+						authorization: `Bearer ${store.token.token}`
+					}
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.then(data => setStore({ protected: data }))
+					.catch(err => console.error(err));
+			},
 			addProfile: contact => {
 				console.log(contact);
 				fetch(`${baseURL}/signup`, {
@@ -43,18 +60,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err));
 			},
-			login: loginuser => {
-				console.log(longinuser);
-				fetch(`${baseURL}/signup`, {
+			logout: () => {
+				setStore({ token: null });
+			},
+			login: (email, password) => {
+				let user = {
+					email: email,
+					password: password
+				};
+				console.log(email, password);
+				fetch(`${baseURL}/login`, {
 					method: "POST",
 					headers: {
 						"Content-type": "application/json"
 					},
-					body: JSON.stringify(loginuser)
+					body: JSON.stringify(user)
 				})
 					.then(response => {
 						if (!response.ok) throw new Error(response.statusText);
 						return response.json();
+					})
+					.then(data => {
+						alert("logged in");
+						setStore({
+							token: data
+						});
 					})
 					.catch(err => console.error(err));
 			}
