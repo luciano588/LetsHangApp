@@ -13,7 +13,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					phone: "236-963-6963",
 					city: "Madrid",
 					zipcode: "36325",
-					state: "FL"
+					state: "FL",
+					friends: [
+						{
+							id: 0,
+							firstname: "Bob",
+							lastname: "Bobby",
+							city: "town"
+						},
+						{
+							id: 1,
+							firstname: "Bo",
+							lastname: "Bo",
+							city: "town"
+						}
+					]
 				},
 				{
 					title: "SECOND",

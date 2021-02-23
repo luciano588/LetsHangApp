@@ -23,7 +23,7 @@ export const Event = () => {
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						<h1 className="text-center mt-5">Event Setup</h1>
+						<h1 className="text-center mt-5">Event Information</h1>
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>

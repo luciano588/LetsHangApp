@@ -11,6 +11,8 @@ export const Userprofile = props => {
 	let params = useParams();
 	const { store, actions } = useContext(Context);
 	let profiles = store.profiles;
+	let friends = store.profiles[0].friends;
+	console.log(store.profiles[0].friends);
 
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
@@ -42,6 +44,11 @@ export const Userprofile = props => {
 		},
 		[store.profiles, params.profileId]
 	);
+
+	const handleDelete = friend => {
+		setSelectedContact(friend);
+		setModal(true);
+	};
 
 	return (
 		<div className="container">
@@ -149,7 +156,23 @@ export const Userprofile = props => {
 											</h5>
 
 											{/* FRIEND LIST */}
-											<div className="list-group">
+											<div className="col-md-12">
+												<div className="list-group">
+													{friends.map((friend, id) => {
+														return (
+															<Card
+																key={id}
+																firstname={friend.firstname}
+																lastname={friend.lastname}
+																city={friend.city}
+																onDelete={handleDelete(id)}
+															/>
+														);
+													})}
+												</div>
+											</div>
+
+											{/* <div className="list-group">
 												<div className="list-group-item d-flex align-items-center">
 													<img
 														src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -169,7 +192,7 @@ export const Userprofile = props => {
 														Remove Friend
 													</a>
 												</div>
-											</div>
+											</div> */}
 										</div>
 									</div>
 									{/* <!--/row--> */}
