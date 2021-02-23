@@ -59,6 +59,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			editUserProfile: async (firstname, lastname, email, address, phone, status, id) => {
+				let response = await fetch(backendApiUrl + "/update/" + id.toString(), {
+					method: "PUT",
+					body: JSON.stringify({
+						firstname: firstname,
+						lastname: firstname,
+						email: email,
+						address: address,
+						phone: phone,
+						status: status
+					}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				getActions().loadSomeData();
+			},
+			deleteFriend: async id => {
+				let response = await fetch(backendApiUrl + "/delete/" + id.toString(), {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}).then(() => getActions().loadSomeData());
 			}
 		}
 	};

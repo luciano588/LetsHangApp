@@ -21,7 +21,7 @@ export const Card = props => {
 			<div className="flex-fill pl-3 pr-3">
 				<div>
 					<a href="#" className="text-dark font-weight-600">
-						{(props.firstname, props.lastname)}
+						{props.firstname + " " + props.lastname}
 					</a>
 				</div>
 				<div className="text-muted fs-13px">{props.city}</div>

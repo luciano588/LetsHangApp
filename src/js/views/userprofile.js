@@ -10,8 +10,8 @@ import { Card } from "../component/friendcard";
 export const Userprofile = props => {
 	let params = useParams();
 	const { store, actions } = useContext(Context);
-	let profiles = store.profiles;
-	let friends = store.profiles[0].friends;
+	let profiles = store.profiles[0];
+	let userFriends = store.profiles[0].friends;
 	console.log(store.profiles[0].friends);
 
 	const [modal, setModal] = useState(false);
@@ -45,9 +45,8 @@ export const Userprofile = props => {
 		[store.profiles, params.profileId]
 	);
 
-	const handleDelete = friend => {
-		setSelectedContact(friend);
-		setModal(true);
+	const handleDelete = id => {
+		actions.deleteFriend(id);
 	};
 
 	return (
@@ -60,7 +59,7 @@ export const Userprofile = props => {
 								<div className="user-box">
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
-								<h5 className="mb-1 text-white" value={(profiles.firstname, profiles.lastname)} />
+								<h5 className="mb-1 text-white">{profiles.firstname + " " + profiles.lastname}</h5>
 							</div>
 							<div className="card-body">
 								<ul className="list-group shadow-none">
@@ -158,41 +157,20 @@ export const Userprofile = props => {
 											{/* FRIEND LIST */}
 											<div className="col-md-12">
 												<div className="list-group">
-													{friends.map((friend, id) => {
+													{userFriends.map((friend, index) => {
 														return (
 															<Card
-																key={id}
+																key={index}
+																id={friend.id}
 																firstname={friend.firstname}
 																lastname={friend.lastname}
 																city={friend.city}
-																onDelete={handleDelete(id)}
+																//onDelete={handleDelete(friend.id)}
 															/>
 														);
 													})}
 												</div>
 											</div>
-
-											{/* <div className="list-group">
-												<div className="list-group-item d-flex align-items-center">
-													<img
-														src="https://bootdey.com/img/Content/avatar/avatar1.png"
-														alt=""
-														width="50px"
-														className="rounded-sm ml-n2"
-													/>
-													<div className="flex-fill pl-3 pr-3">
-														<div>
-															<a href="#" className="text-dark font-weight-600">
-																Ethel Wilkes
-															</a>
-														</div>
-														<div className="text-muted fs-13px">North Raundspic</div>
-													</div>
-													<a href="#" className="btn btn-outline-primary">
-														Remove Friend
-													</a>
-												</div>
-											</div> */}
 										</div>
 									</div>
 									{/* <!--/row--> */}
@@ -379,7 +357,12 @@ export const Userprofile = props => {
 											<label className="col-lg-3 col-form-label form-control-label" />
 											<div className="col-lg-9">
 												<input type="reset" className="btn btn-secondary" value="Cancel" />
-												<input type="button" className="btn btn-primary" value="Save Changes" />
+												<input
+													type="button"
+													className="btn btn-primary"
+													value="Save Changes"
+													onClick={actions.editUserProfile(profiles.id)}
+												/>
 											</div>
 										</div>
 									</form>
