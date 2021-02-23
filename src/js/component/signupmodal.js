@@ -13,9 +13,20 @@ import FormControl from "react-bootstrap/FormControl";
 import FormCheck from "react-bootstrap/FormCheck";
 import FormFile from "react-bootstrap/FormFile";
 import { Jumbotron, Col, Grid, Panel, FormGroup } from "react-bootstrap";
-import { YearPicker, MonthPicker, DayPicker } from "react-dropdown-date";
 
 export const Signupmodal = props => {
+	const [firstname, setFirstName] = useState(null);
+	const [lastname, setLastName] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [nickname, setNickName] = useState(null);
+	const [password, setPassword] = useState(null);
+	const [phone, setPhone] = useState(null);
+	const [streetaddress, setStreetAddress] = useState(null);
+	const [unitno, setUnitNo] = useState(null);
+	const [city, setCity] = useState(null);
+	const [state, setState] = useState(null);
+	const [zipcode, setZipCode] = useState(null);
+	const [gender, setGender] = useState(null);
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const [show, setShow] = useState(false);
@@ -39,7 +50,6 @@ export const Signupmodal = props => {
 	const listYears = birthdayYear.map((birthdayYear, index) => <option key={index}>{birthdayYear}</option>);
 	//
 	const userState = [
-		"New Jersey",
 		"Alabama",
 		"Alaska",
 		"American Samoa",
@@ -99,6 +109,7 @@ export const Signupmodal = props => {
 		"Wyoming"
 	];
 	const listStates = userState.map((userState, index) => <option key={index}>{userState}</option>);
+	var dateofbirth = [];
 	return (
 		<>
 			<span onClick={handleShow}>Sign up</span>
@@ -118,35 +129,67 @@ export const Signupmodal = props => {
 					<Form>
 						<Form.Row>
 							<Col>
-								<Form.Control placeholder="First name" />
+								<Form.Control
+									placeholder="First name"
+									type="firstname"
+									onChange={e => setFirstName(e.target.value)}
+								/>
 							</Col>
 							<Col>
-								<Form.Control placeholder="Last name" />
+								<Form.Control
+									placeholder="Last name"
+									type="lastname"
+									onChange={e => setLastName(e.target.value)}
+								/>
 							</Col>
 						</Form.Row>
 						<Form.Group className="" controlId="formGridAddress1">
 							<br />
-							<Form.Control type="email" placeholder="Email" />
+							<Form.Control type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
 							<br />
-							<Form.Control placeholder="User ID" />
+							<Form.Control
+								placeholder="Nick name"
+								type="nickname"
+								onChange={e => setNickName(e.target.value)}
+							/>
 							<br />
-							<Form.Control type="password" placeholder="New password" />
+							<Form.Control
+								type="password"
+								placeholder="New password"
+								onChange={e => setPassword(e.target.value)}
+							/>
 							<br />
-							<Form.Control placeholder="Street address" />
+							<Form.Control
+								type="address"
+								placeholder="Street address"
+								onChange={e => setStreetAddress(e.target.value)}
+							/>
 							<br />
-							<Form.Control placeholder="Apt, unit, building, floor, etc" />
+							<Form.Control
+								type="unitno"
+								placeholder="Apt, unit, building, floor, etc"
+								onChange={e => setUnitNo(e.target.value)}
+							/>
 						</Form.Group>
 						<Form.Row>
 							<Col>
-								<Form.Control placeholder="City" />
+								<Form.Control type="city" placeholder="City" onChange={e => setCity(e.target.value)} />
 							</Col>
 							<Col>
-								<Form.Control as="select" placeholder="State">
+								<Form.Control
+									type="state"
+									as="select"
+									placeholder="State"
+									onChange={e => setState(e.target.value)}>
 									{listStates}
 								</Form.Control>
 							</Col>
 							<Col>
-								<Form.Control placeholder="Zip Code" />
+								<Form.Control
+									type="zipcode"
+									placeholder="Zip Code"
+									onChange={e => setZipCode(e.target.value)}
+								/>
 							</Col>
 						</Form.Row>
 
@@ -154,18 +197,30 @@ export const Signupmodal = props => {
 						<Form.Group>
 							<Form.Row>
 								<Col>
-									<Form.Control as="select" defaultValue="Month">
+									<Form.Control
+										type="month"
+										as="select"
+										defaultValue="Month"
+										onChange={e => setMonth(e.target.value)}>
 										{listMonth}
 									</Form.Control>
 								</Col>
 
 								<Col>
-									<Form.Control as="select" defaultValue="Day">
+									<Form.Control
+										type="day"
+										as="select"
+										defaultValue="Day"
+										onChange={e => setDay(e.target.value)}>
 										{listDays}
 									</Form.Control>
 								</Col>
 								<Col>
-									<Form.Control as="select" defaultValue="Year">
+									<Form.Control
+										type="year"
+										as="select"
+										defaultValue="Year"
+										onChange={e => setYear(e.target.value)}>
 										{listYears}
 									</Form.Control>
 								</Col>
@@ -184,6 +239,7 @@ export const Signupmodal = props => {
 											type="radio"
 											name="formHorizontalRadios"
 											id="formHorizontalRadios1"
+											onChange={e => setGender("Female")}
 										/>
 									</div>
 								</Col>
@@ -197,6 +253,7 @@ export const Signupmodal = props => {
 											type="radio"
 											name="formHorizontalRadios"
 											id="formHorizontalRadios1"
+											onChange={e => setGender("Male")}
 										/>
 									</div>
 								</Col>
@@ -210,6 +267,7 @@ export const Signupmodal = props => {
 											type="radio"
 											name="formHorizontalRadios"
 											id="formHorizontalRadios1"
+											onChange={e => setGender("Custom")}
 										/>
 									</div>
 								</Col>
@@ -225,11 +283,26 @@ export const Signupmodal = props => {
 						className="w-50 justify-content-center"
 						variant="success"
 						size="lg"
-						onClick={() => {
-							actions.deleteContact(props.contactID);
-							setShow(false);
+						onClick={e => {
+							actions.addProfile({
+								email: email,
+								password: password,
+								nick_name: nickname,
+								first_name: firstname,
+								last_name: lastname,
+								address: streetaddress,
+								city: city,
+								state: state,
+								gender: gender,
+								zipcode: zipcode,
+								birthday: "01201986"
+							});
+							{
+								handleClose();
+							}
 						}}>
 						<strong>Sign Up</strong>
+
 						{/* <a href="#" onClick={() => { func1(); func2();}}>Test Link</a> */}
 					</Button>
 				</Modal.Footer>

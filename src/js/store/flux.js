@@ -1,18 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const baseURL = "https://letshangapp.herokuapp.com";
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			contact: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +27,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addProfile: contact => {
+				console.log(contact);
+				fetch(`${baseURL}/signup`, {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json"
+					},
+					body: JSON.stringify(contact)
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.catch(err => console.error(err));
+			},
+			login: loginuser => {
+				console.log(longinuser);
+				fetch(`${baseURL}/signup`, {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json"
+					},
+					body: JSON.stringify(loginuser)
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.catch(err => console.error(err));
 			}
 		}
 	};
