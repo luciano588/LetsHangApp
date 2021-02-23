@@ -5,9 +5,14 @@ import { Context } from "../store/appContext";
 
 import "../../styles/eventmain.scss";
 import { Invite } from "../component/form";
+import { Card } from "../component/friendcard";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 export const Eventmain = props => {
+	const { store, actions } = useContext(Context);
+	let profiles = store.profiles[0];
+	let userFriends = store.profiles[0].friends;
+
 	return (
 		<div className="bg-white">
 			<div className="container">
@@ -84,42 +89,21 @@ export const Eventmain = props => {
 							<div className="col-md-6" />
 
 							{/* FRIEND LIST */}
+
 							<div className="col-md-12">
 								<div className="list-group">
-									<div className="list-group-item d-flex align-items-center">
-										<img
-											src="https://bootdey.com/img/Content/avatar/avatar1.png"
-											alt=""
-											width="50px"
-											className="rounded-sm ml-n2"
-										/>
-										<div className="flex-fill pl-3 pr-3">
-											<div>
-												<a href="#" className="text-dark font-weight-600">
-													Ethel Wilkes
-												</a>
-											</div>
-											<div className="text-muted fs-13px">North Raundspic</div>
-										</div>
-										<a href="#" className="btn btn-outline-primary" />
-									</div>
-									<div className="list-group-item d-flex align-items-center">
-										<img
-											src="https://bootdey.com/img/Content/avatar/avatar2.png"
-											alt=""
-											width="50px"
-											className="rounded-sm ml-n2"
-										/>
-										<div className="flex-fill pl-3 pr-3">
-											<div>
-												<a href="#" className="text-dark font-weight-600">
-													Shanaya Hansen
-												</a>
-											</div>
-											<div className="text-muted fs-13px">North Raundspic</div>
-										</div>
-										<a href="#" className="btn btn-outline-primary" />
-									</div>
+									{userFriends.map((friend, index) => {
+										return (
+											<Card
+												key={index}
+												id={friend.id}
+												firstname={friend.firstname}
+												lastname={friend.lastname}
+												city={friend.city}
+												//onDelete={handleDelete(friend.id)}
+											/>
+										);
+									})}
 								</div>
 							</div>
 						</div>

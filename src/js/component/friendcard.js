@@ -28,6 +28,7 @@ export const Card = props => {
 			</div>
 			<a className="btn btn-outline-primary" onClick={() => props.onDelete()}>
 				Remove Friend
+				{/* card === userprofile || card === invite ? "Remove Friend" : "Invite Friend" onClick={() => setInvite ("Remove Invite") }*/}
 			</a>
 		</div>
 	);

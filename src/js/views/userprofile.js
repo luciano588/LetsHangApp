@@ -12,7 +12,6 @@ export const Userprofile = props => {
 	const { store, actions } = useContext(Context);
 	let profiles = store.profiles[0];
 	let userFriends = store.profiles[0].friends;
-	console.log(store.profiles[0].friends);
 
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
@@ -226,6 +225,8 @@ export const Userprofile = props => {
 									</table>
 								</div>
 								<div className="tab-pane" id="edit">
+									{/* USER PROFILE EDIT */}
+
 									<form>
 										<div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label">
@@ -334,7 +335,12 @@ export const Userprofile = props => {
 												Username
 											</label>
 											<div className="col-lg-9">
-												<input className="form-control" type="text" value="jhonsanmark" />
+												<input
+													className="form-control"
+													type="text"
+													value={username}
+													ohchange={e => setState(e.target.value)}
+												/>
 											</div>
 										</div>
 										<div className="form-group row">
@@ -361,7 +367,7 @@ export const Userprofile = props => {
 													type="button"
 													className="btn btn-primary"
 													value="Save Changes"
-													onClick={actions.editUserProfile(profiles.id)}
+													// onClick={actions.editUserProfile(profiles.id)}
 												/>
 											</div>
 										</div>
