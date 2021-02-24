@@ -7,6 +7,7 @@ import { Card } from "../component/friendcard";
 
 export const Invite = () => {
 	const { store, actions } = useContext(Context);
+	// const [color, setColor] = useState;
 	const [show, setShow] = useState(false);
 	const [name, setName] = useState(null);
 	const [email, setEmail] = useState(null);
@@ -86,6 +87,8 @@ export const Invite = () => {
 												firstname={friend.firstname}
 												lastname={friend.lastname}
 												city={friend.city}
+												// style={color === primary}
+												// onClick={() => setColor(success)}
 												//onDelete={handleDelete(friend.id)}
 											/>
 										);
