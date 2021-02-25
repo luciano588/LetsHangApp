@@ -70,19 +70,19 @@ export const Eventmain = props => {
 							data-target="#profile"
 							data-toggle="pill"
 							className="nav-link active show">
-							<i className="icon-user" /> <span className="hidden-xs">Friends</span>
+							<i className="icon-user" /> <span className="hidden-xs">Events</span>
 						</a>
 					</li>
-					<li className="nav-item">
+					{/* <li className="nav-item">
 						<a href="javascript:void();" data-target="#messages" data-toggle="pill" className="nav-link">
 							<i className="icon-envelope-open" /> <span className="hidden-xs">Messages</span>
 						</a>
-					</li>
-					<li className="nav-item">
+					</li> */}
+					{/* <li className="nav-item">
 						<a href="javascript:void();" data-target="#edit" data-toggle="pill" className="nav-link">
 							<i className="icon-note" /> <span className="hidden-xs">Events</span>
 						</a>
-					</li>
+					</li> */}
 				</ul>
 				<div className="tab-content p-3">
 					<div className="tab-pane active show" id="profile">
@@ -95,7 +95,7 @@ export const Eventmain = props => {
 								<div className="list-group">
 									{userFriends.map((friend, index) => {
 										return (
-											<Card
+											<Party
 												key={index}
 												id={friend.id}
 												eventname={friend.eventname}
@@ -109,7 +109,7 @@ export const Eventmain = props => {
 						</div>
 						{/* <!--/row--> */}
 					</div>
-					<div className="tab-pane" id="messages">
+					{/* <div className="tab-pane" id="messages">
 						<div className="alert alert-info alert-dismissible" role="alert">
 							<button type="button" className="close" data-dismiss="alert">
 								×
@@ -157,7 +157,7 @@ export const Eventmain = props => {
 								</tr>
 							</tbody>
 						</table>
-					</div>
+					</div> */}
 
 					{/* EVENT LIST */}
 					<div className="tab-pane" id="edit">

@@ -108,7 +108,7 @@ export const Userprofile = props => {
 										<i className="icon-user" /> <span className="hidden-xs">Friends</span>
 									</a>
 								</li>
-								<li className="nav-item">
+								{/* <li className="nav-item">
 									<a
 										href="javascript:void();"
 										data-target="#messages"
@@ -116,7 +116,7 @@ export const Userprofile = props => {
 										className="nav-link">
 										<i className="icon-envelope-open" /> <span className="hidden-xs">Messages</span>
 									</a>
-								</li>
+								</li> */}
 								<li className="nav-item">
 									<a
 										href="javascript:void();"
@@ -174,7 +174,7 @@ export const Userprofile = props => {
 									</div>
 									{/* <!--/row--> */}
 								</div>
-								<div className="tab-pane" id="messages">
+								{/* <div className="tab-pane" id="messages">
 									<div className="alert alert-info alert-dismissible" role="alert">
 										<button type="button" className="close" data-dismiss="alert">
 											×
@@ -223,7 +223,7 @@ export const Userprofile = props => {
 											</tr>
 										</tbody>
 									</table>
-								</div>
+								</div> */}
 								<div className="tab-pane" id="edit">
 									{/* USER PROFILE EDIT */}
 

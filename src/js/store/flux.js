@@ -36,8 +36,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-            ],
-            
+			],
+
 			location: null,
 			contact: [],
 			token: null,
@@ -104,8 +104,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		headers: {
 			// 			"Content-Type": "application/json"
 			// 		}
-            //     }).then(() => getActions().loadSomeData());
-            // },
+			//     }).then(() => getActions().loadSomeData());
+			// },
 			exampleProtected: () => {
 				const store = getStore();
 				fetch(`${baseURL}/protected`, {

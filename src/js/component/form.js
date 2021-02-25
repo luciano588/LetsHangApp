@@ -75,9 +75,7 @@ export const Invite = () => {
 							/>
 						</div>
 						<div className="form-group">
-							<label>Friends</label>
-
-							<div className="col-md-12">
+							{/* <div className="col-md-12">
 								<div className="list-group">
 									{userFriends.map((friend, index) => {
 										return (
@@ -94,7 +92,7 @@ export const Invite = () => {
 										);
 									})}
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</form>
 				</Modal.Body>
