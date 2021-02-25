@@ -10,7 +10,7 @@ export const Dashboard = props => {
 	return (
 		<div>
 			{" "}
-			<div>
+			<div className="jumbotron">
 				<GoogleMap location={store.location} markers={store.markers} />
 			</div>
 		</div>
