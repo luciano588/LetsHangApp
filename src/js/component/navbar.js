@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container-fluid">
 				<a className="navbar-brand" href="/dash">
-					<img src="https://i.imgur.com/8dWJ7Tv.png" />
+					<img className="eventlogo" src={logo} alt="Logo" />
 				</a>
 				<button
 					className="navbar-toggler"
@@ -21,31 +22,28 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<a className="nav-link active" href="/dash">
-								Find your friends
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link active" href="/eventmap">
-								Find your events
-							</a>
+							<Link to="/eventmain">
+								<a className="nav-link">Find your events</a>
+							</Link>
 						</li>
 
 						<li className="nav-item">
-							<a className="nav-link active" href="/userprofile">
-								Edit Profile
-							</a>
+							<Link to="/userprofile">
+								<a className="nav-link">Profile</a>
+							</Link>
 						</li>
-						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="/event">
+						{/* <li className="nav-item">
+							<a className="nav-link" aria-current="page" href="/event">
 								New Event
 							</a>
-						</li>
+						</li> */}
 
 						<li className="nav-item">
-							<a className="nav-link disabled" href="#" aria-disabled="true">
-								Logout
-							</a>
+							<Link to="/">
+								<a className="nav-link" href="#" aria-disabled="true">
+									Logout
+								</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
