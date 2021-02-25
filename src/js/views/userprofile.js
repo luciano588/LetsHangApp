@@ -10,8 +10,10 @@ import { Card } from "../component/friendcard";
 export const Userprofile = props => {
 	let params = useParams();
 	const { store, actions } = useContext(Context);
+	const profiles = store.profiles.user;
+
 	// let profiles = store.profiles[0];
-	let userFriends = store.profiles[0].friends;
+	// let userFriends = store.profiles[0].friends;
 
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
@@ -25,9 +27,9 @@ export const Userprofile = props => {
 	const [zipcode, setZipcode] = useState("");
 	const [state, setState] = useState("");
 
-	useEffect(() => {
-		actions.getUserProfile(match.params.id);
-	}, []);
+	// useEffect(() => {
+	// 	actions.getUserProfile(match.params.id);
+	// }, []);
 
 	// useEffect(
 	// 	() => {
@@ -63,8 +65,7 @@ export const Userprofile = props => {
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
 								<h5 className="mb-1 text-white">
-									{/* {profiles.firstname + " " + profiles.lastname} */}
-									Hello
+									{/* {profiles.first_name + " " + profiles.last_name} */}
 								</h5>
 							</div>
 							<div className="card-body">
@@ -164,7 +165,7 @@ export const Userprofile = props => {
 											</h5>
 
 											{/* FRIEND LIST */}
-											<div className="col-md-12">
+											{/* <div className="col-md-12">
 												<div className="list-group">
 													{userFriends.map((friend, index) => {
 														return (
@@ -179,7 +180,7 @@ export const Userprofile = props => {
 														);
 													})}
 												</div>
-											</div>
+											</div> */}
 										</div>
 									</div>
 									{/* <!--/row--> */}
@@ -399,6 +400,11 @@ export const Userprofile = props => {
 									</form>
 								</div>
 							</div>
+						</div>
+						<div className="col-md-12">
+							<Link to="/dash">
+								<button className="btn btn-primary float-right">Back home</button>
+							</Link>
 						</div>
 					</div>
 				</div>

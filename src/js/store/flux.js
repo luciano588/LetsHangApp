@@ -41,8 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: null,
 			contact: [],
 			token: null,
-			protected: null,
-			userProfile: []
+			protected: null
 		},
 		actions: {
 			getLocation: async () => {
@@ -172,8 +171,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						alert("logged in");
 						setStore({
-							token: data
+							token: data,
+							profiles: data
 						});
+						console.log(store.profiles);
+						console.log(store.profiles.user);
 					})
 					.catch(err => console.error(err));
 			}
