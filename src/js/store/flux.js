@@ -41,7 +41,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: null,
 			contact: [],
 			token: null,
-			protected: null
+			protected: null,
+			userProfile: []
 		},
 		actions: {
 			getLocation: async () => {
@@ -136,6 +137,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err));
 			},
+
+			getUserProfile: async user_id => {
+				let response = await fetch(`${baseURL}user/${token.id}`);
+				let user = await response.json();
+				if (response.ok) {
+					setStore({ token: user });
+				}
+			},
+
 			logout: () => {
 				setStore({ token: null });
 			},

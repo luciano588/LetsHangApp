@@ -10,12 +10,12 @@ import { Card } from "../component/friendcard";
 export const Userprofile = props => {
 	let params = useParams();
 	const { store, actions } = useContext(Context);
-	let profiles = store.profiles[0];
+	// let profiles = store.profiles[0];
 	let userFriends = store.profiles[0].friends;
 
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
-	const [username, setUsername] = useState("");
+	const [nick_name, setNick_name] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [lastname, setLastname] = useState("");
 	const [email, setEmail] = useState("");
@@ -25,24 +25,28 @@ export const Userprofile = props => {
 	const [zipcode, setZipcode] = useState("");
 	const [state, setState] = useState("");
 
-	useEffect(
-		() => {
-			for (let profile of store.profiles) {
-				if (params.profileId == profile.id) {
-					setAddress(profiles.address);
-					setFirstname(profiles.firstname);
-					setLastname(profiles.lastname);
-					setEmail(profiles.email);
-					setUsername(profiles.username);
-					setPhone(profiles.phone);
-					setCity(profiles.city);
-					setZipcode(profiles.zipcode);
-					setState(profiles.state);
-				}
-			}
-		},
-		[store.profiles, params.profileId]
-	);
+	useEffect(() => {
+		actions.getUserProfile(match.params.id);
+	}, []);
+
+	// useEffect(
+	// 	() => {
+	// 		for (let contact of store.contact) {
+	// 			if (params.profileId == profile.id) {
+	// 				setAddress(profiles.address);
+	// 				setFirstname(profiles.firstname);
+	// 				setLastname(profiles.lastname);
+	// 				setEmail(profiles.email);
+	// 				setNick_name(contact.nick_name);
+	// 				// setPhone(profiles.phone);
+	// 				setCity(profiles.city);
+	// 				setZipcode(profiles.zipcode);
+	// 				setState(profiles.state);
+	// 			}
+	// 		}
+	// 	},
+	// 	[store.profiles, params.profileId]
+	// );
 
 	const handleDelete = id => {
 		actions.deleteFriend(id);
@@ -58,7 +62,10 @@ export const Userprofile = props => {
 								<div className="user-box">
 									<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar" />
 								</div>
-								<h5 className="mb-1 text-white">{profiles.firstname + " " + profiles.lastname}</h5>
+								<h5 className="mb-1 text-white">
+									{/* {profiles.firstname + " " + profiles.lastname} */}
+									Hello
+								</h5>
 							</div>
 							<div className="card-body">
 								<ul className="list-group shadow-none">
@@ -67,7 +74,10 @@ export const Userprofile = props => {
 											<i className="fa fa-phone-square" />
 										</div>
 										<div className="list-details">
-											<span>{profiles.phone}</span>
+											<span>
+												{/* {profiles.phone} */}
+												Phone
+											</span>
 											<small>Mobile Number</small>
 										</div>
 									</li>
@@ -76,7 +86,7 @@ export const Userprofile = props => {
 											<i className="fa fa-envelope" />
 										</div>
 										<div className="list-details">
-											<span>{profiles.email}</span>
+											<span>{/* {profiles.email} */}</span>
 											<small>Email Address</small>
 										</div>
 									</li>
@@ -85,7 +95,7 @@ export const Userprofile = props => {
 											<i className="fa fa-globe" />
 										</div>
 										<div className="list-details">
-											<span>{profiles.username}</span>
+											<span>{/* {contact.nick_name} */}</span>
 											<small>User Name</small>
 										</div>
 									</li>
@@ -265,14 +275,14 @@ export const Userprofile = props => {
 												/>
 											</div>
 										</div>
-										<div className="form-group row">
+										{/* <div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label">
 												Change profile
 											</label>
 											<div className="col-lg-9">
 												<input className="form-control" type="file" />
 											</div>
-										</div>
+										</div> */}
 										<div className="form-group row">
 											<label className="col-lg-3 col-form-label form-control-label">
 												Birthday
@@ -281,7 +291,7 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={username}
+													// value={username}
 													onChange={e => setUsername(e.target.value)}
 												/>
 											</div>
@@ -338,8 +348,8 @@ export const Userprofile = props => {
 												<input
 													className="form-control"
 													type="text"
-													value={username}
-													ohchange={e => setState(e.target.value)}
+													// value={username}
+													onChange={e => setState(e.target.value)}
 												/>
 											</div>
 										</div>
@@ -367,6 +377,21 @@ export const Userprofile = props => {
 													type="button"
 													className="btn btn-primary"
 													value="Save Changes"
+													onClick={e => {
+														actions.addProfile({
+															email: email,
+															password: password,
+															nick_name: nickname,
+															first_name: firstname,
+															last_name: lastname,
+															address: streetaddress,
+															city: city,
+															state: state,
+															gender: gender,
+															zipcode: zipcode,
+															birthday: "01201986"
+														});
+													}}
 													// onClick={actions.editUserProfile(profiles.id)}
 												/>
 											</div>
@@ -387,7 +412,7 @@ Userprofile.PropTypes = {
 	lastname: PropTypes.string,
 	phone: PropTypes.string,
 	email: PropTypes.string,
-	username: PropTypes.string,
+	nick_name: PropTypes.string,
 	address: PropTypes.string,
 	city: PropTypes.string,
 	state: PropTypes.string,
