@@ -77,9 +77,7 @@ export const Eventmain = props => {
 					</ul>
 					<div className="tab-content p-3">
 						<div className="tab-pane active show" id="profile">
-							<div className="row">
-								<div className="col-md-6" />
-
+							<div className="row justify-content-center">
 								{/* FRIEND LIST */}
 
 								<div className="col-md-6 justify-center">

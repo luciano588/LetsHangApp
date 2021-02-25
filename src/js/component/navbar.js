@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
+import { Context } from "../store/appContext";
+
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container-fluid">
@@ -22,14 +26,14 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<Link to="/eventmain">
-								<a className="nav-link">Find your events</a>
+							<Link className="nav-link" to="/eventmain">
+								Find your events
 							</Link>
 						</li>
 
 						<li className="nav-item">
-							<Link to="/userprofile">
-								<a className="nav-link">Profile</a>
+							<Link className="nav-link" to="/userprofile">
+								Profile
 							</Link>
 						</li>
 						{/* <li className="nav-item">
@@ -37,14 +41,19 @@ export const Navbar = () => {
 								New Event
 							</a>
 						</li> */}
-
-						<li className="nav-item">
-							<Link to="/">
-								<a className="nav-link" href="#" aria-disabled="true">
+						{store.token != null ? (
+							<li className="nav-item" onClick={() => actions.logout()}>
+								<Link className="nav-link" to="/">
 									Logout
-								</a>
-							</Link>
-						</li>
+								</Link>
+							</li>
+						) : (
+							<li className="nav-item">
+								<Link className="nav-link" to="/">
+									Login
+								</Link>
+							</li>
+						)}
 					</ul>
 				</div>
 			</div>

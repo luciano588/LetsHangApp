@@ -125,6 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: null,
 			contact: [],
 			token: null,
+			profile: null,
 			protected: null
 		},
 		actions: {
@@ -230,7 +231,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			logout: () => {
-				setStore({ token: null });
+				setStore({
+					token: null,
+					profile: null
+				});
 			},
 			login: async (email, password) => {
 				let store = getStore();
@@ -256,10 +260,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("logged in");
 						setStore({
 							token: data,
-							profiles: data
+							profile: data.user
 						});
-						console.log(store.profiles);
-						console.log(store.profiles.user);
+						console.log(store.profile);
+						console.log(store.profile.user);
 					})
 					.catch(err => console.error(err));
 			}

@@ -11,7 +11,8 @@ import { Navbar } from "../component/navbar";
 export const Userprofile = props => {
 	let params = useParams();
 	const { store, actions } = useContext(Context);
-	const profiles = store.profiles.user;
+	const profile = store.profile != null && store.profile.user;
+	console.log(profile);
 
 	// let profiles = store.profiles[0];
 	// let userFriends = store.profiles[0].friends;
@@ -94,7 +95,7 @@ export const Userprofile = props => {
 												<i className="fa fa-envelope" />
 											</div>
 											<div className="list-details">
-												<span>{/* {profiles.email} */}</span>
+												<span>{store.profile != null && store.profile.email}</span>
 												<small>Email Address</small>
 											</div>
 										</li>
@@ -103,7 +104,7 @@ export const Userprofile = props => {
 												<i className="fa fa-globe" />
 											</div>
 											<div className="list-details">
-												<span>{/* {profiles.nick_name} */}</span>
+												<span>{store.profile != null && store.profile.nick_name}</span>
 												<small>User Name</small>
 											</div>
 										</li>
