@@ -6,10 +6,11 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Dashboard } from "./views/dashboard";
+import { DashboardEvent } from "./views/dashboardEvent";
 import { Userprofile } from "./views/userprofile";
 import { Eventmain } from "./views/eventmain";
 import injectContext from "./store/appContext";
-
+import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Invite } from "./component/form";
 import { Event } from "./component/event";
@@ -22,9 +23,10 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-coloumn justify-content-center">
+		<div className="d-flex flex-column ">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -34,6 +36,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/dash">
 							<Dashboard />
+						</Route>
+						<Route exact path="/eventmap">
+							<DashboardEvent />
 						</Route>
 						<Route exact path="/userprofile">
 							<Userprofile />
