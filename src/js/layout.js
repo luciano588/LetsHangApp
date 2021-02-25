@@ -6,6 +6,8 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Dashboard } from "./views/dashboard";
+import { Userprofile } from "./views/userprofile";
+import { Eventmain } from "./views/eventmain";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
@@ -23,10 +25,6 @@ const Layout = () => {
 		<div className="d-flex flex-coloumn justify-content-center">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					{/* <Navbar /> */}
-					{/* <Invite />
-					<Event /> */}
-
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -36,6 +34,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/dash">
 							<Dashboard />
+						</Route>
+						<Route exact path="/userprofile">
+							<Userprofile />
+						</Route>
+						<Route exact path="/eventmain">
+							<Eventmain />
+						</Route>
+						<Route exact path="/single/:theid">
+							<Single />
 						</Route>
 						<Route exact path="/dash/profile">
 							<Profile />

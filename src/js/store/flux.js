@@ -3,6 +3,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
+			profiles: [
+				{
+					id: 1,
+					firstname: "First",
+					lastname: "Last",
+					initial: "white",
+					address: "7590 nw 40th st",
+					email: "where@gmail.com",
+					username: "bobby1",
+					phone: "236-963-6963",
+					city: "Madrid",
+					zipcode: "36325",
+					state: "FL",
+					friends: [
+						{
+							id: 0,
+							firstname: "Bob",
+							lastname: "Bobby",
+							city: "town"
+						},
+						{
+							id: 1,
+							firstname: "Bo",
+							lastname: "Bo",
+							city: "town"
+						}
+					]
+				},
+				{
+					title: "SECOND",
+					background: "white",
+					initial: "white"
+				}
+            ],
+            
 			location: null,
 			contact: [],
 			token: null,
@@ -46,6 +81,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			// editUserProfile: async (firstname, lastname, email, address, phone, status, id) => {
+			// 	let response = await fetch(backendApiUrl + "/update/" + id.toString(), {
+			// 		method: "PUT",
+			// 		body: JSON.stringify({
+			// 			firstname: firstname,
+			// 			lastname: firstname,
+			// 			email: email,
+			// 			address: address,
+			// 			phone: phone,
+			// 			status: status
+			// 		}),
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		}
+			// 	});
+			// 	getActions().loadSomeData();
+			// },
+			// deleteFriend: async id => {
+			// 	let response = await fetch(backendApiUrl + "/delete/" + id.toString(), {
+			// 		method: "DELETE",
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		}
+            //     }).then(() => getActions().loadSomeData());
+            // },
 			exampleProtected: () => {
 				const store = getStore();
 				fetch(`${baseURL}/protected`, {
