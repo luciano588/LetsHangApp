@@ -38,7 +38,9 @@ class GoogleMap extends Component {
 					bootstrapURLKeys={{ key: "AIzaSyBEAxk3n0Q0affZEve_2CqwFq-Q4xUS8hc" }}
 					defaultCenter={this.props.center}
 					defaultZoom={this.props.zoom}>
-					<AnyReactComponent lat={25.78} lng={-80.18} />
+					{this.props.location !== null && (
+						<AnyReactComponent lat={this.props.location.lat} lng={this.props.location.lng} />
+					)}
 				</GoogleMapReact>
 			</div>
 		);
@@ -47,7 +49,8 @@ class GoogleMap extends Component {
 
 GoogleMap.propTypes = {
 	center: PropTypes.string,
-	zoom: PropTypes.string
+	zoom: PropTypes.string,
+	location: PropTypes.string
 };
 
 export default GoogleMap;

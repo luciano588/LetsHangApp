@@ -1,12 +1,28 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	const baseURL = "https://letshangapp.herokuapp.com";
+	// const baseURL = "https://letshangapp.herokuapp.com";
+	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
+			location: null,
 			contact: [],
 			token: null,
 			protected: null
 		},
 		actions: {
+			getLocation: async () => {
+				let store = getStore();
+
+				if (navigator.geolocation) {
+					const position = await navigator.geolocation.getCurrentPosition(position => {
+						console.log(position);
+						store.location = {
+							lat: position.coords.latitude,
+							lng: position.coords.longitude
+						};
+						setStore(store);
+					});
+				}
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -63,10 +79,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logout: () => {
 				setStore({ token: null });
 			},
-			login: (email, password) => {
+			login: async (email, password) => {
+				let store = getStore();
 				let user = {
 					email: email,
-					password: password
+					password: password,
+					lat: store.location.lat,
+					lng: store.location.lng
 				};
 				console.log(email, password);
 				fetch(`${baseURL}/login`, {

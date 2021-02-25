@@ -5,9 +5,10 @@ import { Context } from "../store/appContext";
 import GoogleMap from "../component/googleMap";
 
 export const Dashboard = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="jumbotron">
-			<GoogleMap />
+			<GoogleMap location={store.location} />
 		</div>
 	);
 };
