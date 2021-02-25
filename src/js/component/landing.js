@@ -1,30 +1,31 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "/workspace/LetsHangApp/src/styles/landing.scss";
 import "/workspace/LetsHangApp/src/styles/bootstrap-social.css";
+import { Context } from "../store/appContext";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
-import { signupmodal, Signupmodal } from "/workspace/LetsHangApp/src/js/component/singupmodal.js";
-
+import { signupmodal, Signupmodal } from "./signupmodal.js";
+import { Demo } from "./demo.js";
+import { Card } from "./logocard.js";
+import { Loginbutton } from "./loginbutton.js";
 export const Landing = () => {
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
+	const { store, actions } = useContext(Context);
+
 	return (
-		<div className="container bg-dark align-box">
+		<div className="container-fluid bg-dark align-box">
 			<div className="row">
 				<div className="col bg-light padding-col">
-					<div className="row justify-content-center">
-						<img className="logo" src={logo} alt="Logo" />
-
-						{/* <strong>
-							<h1 className="text-center display-1">{"Let's"}</h1>
-							<br />
-							<h1 className="text-center display-1">{"Hang"}</h1>
-						</strong> */}
+					<div className="row d-flex justify-content-center">
+						<Card />
 					</div>
 				</div>
 				<div className="col bg-coral padding-col border border-secondary">
 					<div className="mt-5 containerd">
 						<div className="container">
-							<div className="display-inblock text-left ml-5">
+							<div className="display-inblock text-center">
 								<h1> Log in </h1>
 								<p className="small bold ml-1">
 									Not registered with us yet?{" "}
@@ -36,19 +37,23 @@ export const Landing = () => {
 							<div className="row justify-content-center">
 								<Form className="w-75">
 									<Form.Group controlId="formBasicEmail">
-										<Form.Control className="w-100" type="email" placeholder="Enter email" />
-										{/* <Form.Text className="text-muted">
-								{"We'll never share your email with anyone else."}
-							</Form.Text> */}
+										<Form.Control
+											className="w-100"
+											type="email"
+											placeholder="Enter email"
+											onChange={e => setEmail(e.target.value)}
+										/>
 									</Form.Group>
 
 									<Form.Group controlId="formBasicPassword">
-										<Form.Control type="password" placeholder="Password" />
+										<Form.Control
+											type="password"
+											placeholder="Password"
+											onChange={e => setPassword(e.target.value)}
+										/>
 									</Form.Group>
 									<Link to="/dash">
-										<Button className="form-control" variant="primary" type="submit">
-											Log in
-										</Button>
+										<Loginbutton email={email} password={password} />
 									</Link>
 								</Form>
 							</div>
