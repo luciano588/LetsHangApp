@@ -7,13 +7,13 @@ const AnyReactComponent = () => (
 	<div
 		className="zoom"
 		style={{
-			width: "30px",
-			height: "30px",
-			border: "1px solid white",
+			width: "45px",
+			height: "45px",
+			border: "0px solid white",
 			background: "white",
 			color: "white",
-			borderRadius: "50%",
-			backgroundImage: "url(https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png)",
+			borderRadius: "10%",
+			backgroundImage: "url(https://i.pinimg.com/originals/9a/ec/32/9aec32c02c8708de263ec58bfc0beede.png)",
 			backgroundSize: "cover"
 		}}
 	/>
@@ -23,13 +23,13 @@ AnyReactComponent.propTypes = {
 	text: PropTypes.string
 };
 
-class GoogleMap extends Component {
+class GoogleMapEvent extends Component {
 	static defaultProps = {
 		center: {
 			lat: 25.78,
 			lng: -80.18
 		},
-		zoom: 14
+		zoom: 12
 	};
 
 	render() {
@@ -39,11 +39,8 @@ class GoogleMap extends Component {
 					bootstrapURLKeys={{ key: "AIzaSyBEAxk3n0Q0affZEve_2CqwFq-Q4xUS8hc" }}
 					defaultCenter={this.props.center}
 					defaultZoom={this.props.zoom}>
-					{this.props.location !== null && (
-						<AnyReactComponent lat={this.props.location.lat} lng={this.props.location.lng} />
-					)}
-					{this.props.markers.map((marker, index) => {
-						return <AnyReactComponent key={index} lat={marker.lat} lng={marker.lng} />;
+					{this.props.events.map((event, index) => {
+						return <AnyReactComponent key={index} lat={event.lat} lng={event.lng} />;
 					})}
 				</GoogleMapReact>
 			</div>
@@ -51,11 +48,12 @@ class GoogleMap extends Component {
 	}
 }
 
-GoogleMap.propTypes = {
+GoogleMapEvent.propTypes = {
 	center: PropTypes.string,
 	zoom: PropTypes.string,
+	events: PropTypes.array,
 	markers: PropTypes.array,
 	location: PropTypes.string
 };
 
-export default GoogleMap;
+export default GoogleMapEvent;

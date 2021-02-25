@@ -12,7 +12,7 @@ const AnyReactComponent = () => (
 			border: "1px solid white",
 			background: "white",
 			color: "white",
-			borderRadius: "20%",
+			borderRadius: "50%",
 			backgroundImage: "url(https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png)",
 			backgroundSize: "cover"
 		}}
