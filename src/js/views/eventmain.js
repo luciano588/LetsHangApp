@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 import "../../styles/eventmain.scss";
 import { Invite } from "../component/form";
 import { Card } from "../component/friendcard";
+import { Party } from "../component/eventcard";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 export const Eventmain = props => {
@@ -97,8 +98,7 @@ export const Eventmain = props => {
 											<Card
 												key={index}
 												id={friend.id}
-												firstname={friend.firstname}
-												lastname={friend.lastname}
+												eventname={friend.eventname}
 												city={friend.city}
 												//onDelete={handleDelete(friend.id)}
 											/>
@@ -158,9 +158,26 @@ export const Eventmain = props => {
 							</tbody>
 						</table>
 					</div>
+
+					{/* EVENT LIST */}
 					<div className="tab-pane" id="edit">
 						<h5 className="mt-2 mb-3">
-							<span className="fa fa-clock-o ion-clock float-right" /> Here goes a list of events
+							<div className="col-md-12">
+								<div className="list-group">
+									{userFriends.map((friend, index) => {
+										return (
+											<Party
+												key={index}
+												id={friend.id}
+												// firstname={friend.firstname}
+												// lastname={friend.lastname}
+												// city={friend.city}
+												//onDelete={handleDelete(friend.id)}
+											/>
+										);
+									})}
+								</div>
+							</div>
 						</h5>
 					</div>
 				</div>
