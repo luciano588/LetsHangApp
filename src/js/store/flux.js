@@ -1,4 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	// const baseURL = "https://letshangapp.herokuapp.com";
+	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
 			profiles: [
@@ -34,9 +36,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+            ],
+            
+			location: null,
+			contact: [],
+			token: null,
+			protected: null
 		},
 		actions: {
+			getLocation: async () => {
+				let store = getStore();
+
+				if (navigator.geolocation) {
+					const position = await navigator.geolocation.getCurrentPosition(position => {
+						console.log(position);
+						store.location = {
+							lat: position.coords.latitude,
+							lng: position.coords.longitude
+						};
+						setStore(store);
+					});
+				}
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -77,13 +98,74 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	});
 			// 	getActions().loadSomeData();
 			// },
-			deleteFriend: async id => {
-				let response = await fetch(backendApiUrl + "/delete/" + id.toString(), {
-					method: "DELETE",
+			// deleteFriend: async id => {
+			// 	let response = await fetch(backendApiUrl + "/delete/" + id.toString(), {
+			// 		method: "DELETE",
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		}
+            //     }).then(() => getActions().loadSomeData());
+            // },
+			exampleProtected: () => {
+				const store = getStore();
+				fetch(`${baseURL}/protected`, {
 					headers: {
-						"Content-Type": "application/json"
+						"Content-type": "application/json",
+						authorization: `Bearer ${store.token.token}`
 					}
-				}).then(() => getActions().loadSomeData());
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.then(data => setStore({ protected: data }))
+					.catch(err => console.error(err));
+			},
+			addProfile: contact => {
+				console.log(contact);
+				fetch(`${baseURL}/signup`, {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json"
+					},
+					body: JSON.stringify(contact)
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.catch(err => console.error(err));
+			},
+			logout: () => {
+				setStore({ token: null });
+			},
+			login: async (email, password) => {
+				let store = getStore();
+				let user = {
+					email: email,
+					password: password,
+					lat: store.location.lat,
+					lng: store.location.lng
+				};
+				console.log(email, password);
+				fetch(`${baseURL}/login`, {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json"
+					},
+					body: JSON.stringify(user)
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.then(data => {
+						alert("logged in");
+						setStore({
+							token: data
+						});
+					})
+					.catch(err => console.error(err));
 			}
 		}
 	};
