@@ -20,7 +20,9 @@ export const Eventmain = props => {
 				<div className="d-flex justify-content-between align-items-center py-4">
 					<div>
 						{/* potential spot for logo??? */}
-						<img className="eventlogo" src={logo} alt="Logo" />
+						<Link to="/dash">
+							<img className="eventlogo" src={logo} alt="Logo" />
+						</Link>
 					</div>
 					<div>
 						<Invite />

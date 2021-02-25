@@ -139,7 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getUserProfile: async user_id => {
-				let response = await fetch(`${baseURL}user/${token.id}`);
+				let response = await fetch(`${baseURL}user/${store.token.user.id}`);
 				let user = await response.json();
 				if (response.ok) {
 					setStore({ token: user });
