@@ -3,6 +3,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
+			markers: [
+				{
+					id: 1,
+					lat: "25.785882708986044",
+					lng: "-80.1866647597708"
+				},
+				{
+					id: 2,
+					lat: "25.776261938064348",
+					lng: "-80.19608202287758"
+				}
+			],
 			profiles: [
 				{
 					id: 1,
@@ -36,8 +48,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-            ],
-            
+			],
+
 			location: null,
 			contact: [],
 			token: null,
@@ -104,8 +116,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		headers: {
 			// 			"Content-Type": "application/json"
 			// 		}
-            //     }).then(() => getActions().loadSomeData());
-            // },
+			//     }).then(() => getActions().loadSomeData());
+			// },
 			exampleProtected: () => {
 				const store = getStore();
 				fetch(`${baseURL}/protected`, {

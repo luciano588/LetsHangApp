@@ -1,18 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
 import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 const AnyReactComponent = () => (
 	<div
+		className="zoom"
 		style={{
-			width: "50px",
-			height: "50px",
-			border: "1px solid red",
-			background: "red",
+			width: "30px",
+			height: "30px",
+			border: "1px solid white",
+			background: "white",
 			color: "white",
 			borderRadius: "50%",
-			backgroundImage: "url(https://marmelab.com/images/blog/ascii-art-converter/homer.png)"
+			backgroundImage: "url(https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png)",
+			backgroundSize: "cover"
 		}}
 	/>
 );
@@ -41,6 +43,9 @@ class GoogleMap extends Component {
 					{this.props.location !== null && (
 						<AnyReactComponent lat={this.props.location.lat} lng={this.props.location.lng} />
 					)}
+					{this.props.markers.map((marker, index) => {
+						return <AnyReactComponent key={index} lat={marker.lat} lng={marker.lng} />;
+					})}
 				</GoogleMapReact>
 			</div>
 		);
@@ -50,6 +55,7 @@ class GoogleMap extends Component {
 GoogleMap.propTypes = {
 	center: PropTypes.string,
 	zoom: PropTypes.string,
+	markers: PropTypes.array,
 	location: PropTypes.string
 };
 

@@ -9,7 +9,7 @@ import { Dashboard } from "./views/dashboard";
 import { Userprofile } from "./views/userprofile";
 import { Eventmain } from "./views/eventmain";
 import injectContext from "./store/appContext";
-
+import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Invite } from "./component/form";
 import { Event } from "./component/event";
@@ -22,9 +22,10 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-coloumn justify-content-center">
+		<div className="d-flex flex-column ">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
