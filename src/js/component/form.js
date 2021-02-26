@@ -10,12 +10,22 @@ export const Invite = () => {
 	// const [color, setColor] = useState;
 	const [show, setShow] = useState(false);
 	const [event_organizer, setEvent_organizer] = useState(null);
-	const [email, setEmail] = useState(null);
-	const [phone, setPhone] = useState(null);
+	const [event_name, setEvent_name] = useState(null);
+	const [event_description, setEvent_description] = useState(null);
 	const [event_address, setEvent_address] = useState(null);
+	const [event_location, setEvent_location] = useState(null);
+	const [invitees, setInvitees] = useState(null);
 
 	let profiles = store.profiles[0];
 	let userFriends = store.profiles[0].friends;
+	function inputclearing() {
+		setEvent_organizer("");
+		setEvent_name("");
+		setEvent_description("");
+		setEvent_address("");
+		setEvent_location("");
+		setInvitees("");
+	}
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -35,43 +45,63 @@ export const Invite = () => {
 				<Modal.Body>
 					<form onSubmit={e => e.preventDefault()}>
 						<div className="form-group">
-							<label>Your Name</label>
+							<label>Event Organizer</label>
 							<input
 								value={event_organizer}
 								type="text"
 								className="form-control"
-								placeholder="Full Name"
-								onChange={e => setName(e.target.value)}
+								placeholder="Your Name"
+								onChange={e => setEvent_organizer(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
-							<label>Phone</label>
+							<label>Event Name</label>
 							<input
-								value={phone}
-								type="phone"
+								value={event_name}
+								type="event name"
 								className="form-control"
-								placeholder="Enter phone"
-								onChange={e => setPhone(e.target.value)}
+								placeholder="Event Name"
+								onChange={e => setEvent_name(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
-							<label>Location Name</label>
+							<label>Event Location</label>
 							<input
-								value={location}
-								type="location"
+								value={event_location}
+								type="event name"
 								className="form-control"
-								placeholder="Enter location"
-								onChange={e => setLocation(e.target.value)}
+								placeholder="Location Name"
+								onChange={e => setEvent_location(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
-							<label>Location Address</label>
+							<label>Event Address</label>
 							<input
 								value={event_address}
+								type="event address"
+								className="form-control"
+								placeholder="Event Address"
+								onChange={e => setEvent_address(e.target.value)}
+							/>
+						</div>
+						<div className="form-group">
+							<label>Event Description</label>
+							<input
+								value={event_description}
 								type="text"
 								className="form-control"
-								placeholder="Enter address"
-								onChange={e => setAddress(e.target.value)}
+								placeholder="Enter Description"
+								onChange={e => setEvent_description(e.target.value)}
+							/>
+						</div>
+						<div className="form-group">
+							<label>Invitees</label>
+							<input
+								value={invitees}
+								type="text"
+								className="form-control"
+								placeholder="Enter Email"
+								onChange={e => setInvitees(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
@@ -101,10 +131,31 @@ export const Invite = () => {
 						className="w-50 justify-content-center"
 						variant="success"
 						size="lg"
-						onClick={() => {
-							setShow(false);
+						onClick={e => {
+							actions.addEvent({
+								event_organizer: event_organizer,
+								event_name: event_name,
+								event_description: event_description,
+								event_address: event_address,
+								event_location: event_location,
+								invitees: invitees
+							});
+							{
+								actions.syncData();
+							}
+							{
+								setTimeout(() => {
+									handleClose();
+								}, 3000);
+							}
+							{
+								actions.syncData();
+							}
+							{
+								inputclearing();
+							}
 						}}>
-						Create event
+						Create Event
 					</Button>
 				</Modal.Footer>
 			</Modal>

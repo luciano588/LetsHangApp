@@ -1,6 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	// const baseURL = "https://letshangapp.herokuapp.com";
-	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
+	const baseURL = "https://letshangapp.herokuapp.com";
+	// const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
 			events: [
@@ -33,6 +33,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id: 6,
 					lat: "25.766955117396357",
 					lng: "-80.19324427003448347"
+				},
+				{
+					id: 7,
+					lat: "28.386033581331738",
+					lng: "-81.56386227894639"
+				},
+				{
+					id: 8,
+					lat: "40.763443407138794",
+					lng: "-73.98307432894404"
 				}
 			],
 			markers: [
@@ -103,18 +113,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					friends: [
 						{
 							id: 0,
-							firstname: "Bob",
-							lastname: "Bobby",
-							city: "town"
+							firstname: "Luciano",
+							lastname: "Almeida",
+							city: "Miami"
 						},
 						{
 							id: 1,
-							firstname: "Bo",
-							lastname: "Bo",
-							city: "town"
+							firstname: "Armando",
+							lastname: "Valenzuela",
+							city: "Miami"
 						}
 					]
 				},
+
 				{
 					title: "SECOND",
 					background: "white",
@@ -126,8 +137,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			contact: [],
 			token: null,
 			profile: null,
-			protected: null
+			protected: null,
+
+			party: []
 		},
+
 		actions: {
 			getLocation: async () => {
 				let store = getStore();
@@ -191,6 +205,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		}
 			//     }).then(() => getActions().loadSomeData());
 			// },
+
 			exampleProtected: () => {
 				const store = getStore();
 				fetch(`${baseURL}/protected`, {
@@ -266,6 +281,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(store.profile.user);
 					})
 					.catch(err => console.error(err));
+			},
+
+			addEvent: event => {
+				console.log(event);
+				fetch(`${baseURL}/event`, {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json"
+					},
+					body: JSON.stringify(event)
+				})
+					.then(response => {
+						if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+					})
+					.catch(err => console.error(err));
+			},
+
+			syncData: () => {
+				let store = getStore();
+				fetch(`${baseURL}/events/all`)
+					.then(response => {
+						// if (!response.ok) throw new Error(response.statusText);
+						return response.json();
+						console.log(data);
+					})
+					.then(data => {
+						setStore({
+							party: data
+						});
+						console.log(store.party);
+					});
 			}
 		}
 	};
