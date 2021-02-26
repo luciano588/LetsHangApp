@@ -14,8 +14,8 @@ export const Userprofile = props => {
 	const profile = store.profile != null && store.profile.user;
 	console.log(profile);
 
-	// let profiles = store.profiles[0];
-	// let userFriends = store.profiles[0].friends;
+	let profiles = store.profiles[0];
+	let userFriends = store.profiles[0].friends;
 
 	const [modal, setModal] = useState(false);
 	const [selectedContact, setSelectedContact] = useState(null);
@@ -33,24 +33,24 @@ export const Userprofile = props => {
 	// 	actions.getUserProfile(match.params.id);
 	// }, []);
 
-	// useEffect(
-	// 	() => {
-	// 		for (let contact of store.contact) {
-	// 			if (params.profileId == profile.id) {
-	// 				setAddress(profiles.address);
-	// 				setFirstname(profiles.firstname);
-	// 				setLastname(profiles.lastname);
-	// 				setEmail(profiles.email);
-	// 				setNick_name(contact.nick_name);
-	// 				// setPhone(profiles.phone);
-	// 				setCity(profiles.city);
-	// 				setZipcode(profiles.zipcode);
-	// 				setState(profiles.state);
-	// 			}
-	// 		}
-	// 	},
-	// 	[store.profiles, params.profileId]
-	// );
+	useEffect(
+		() => {
+			for (let contact of store.contact) {
+				if (params.profileId == profile.id) {
+					setAddress(profiles.address);
+					setFirstname(profiles.firstname);
+					setLastname(profiles.lastname);
+					setEmail(profiles.email);
+					setNick_name(contact.nick_name);
+					// setPhone(profiles.phone);
+					setCity(profiles.city);
+					setZipcode(profiles.zipcode);
+					setState(profiles.state);
+				}
+			}
+		},
+		[store.profiles, params.profileId]
+	);
 
 	const handleDelete = id => {
 		actions.deleteFriend(id);
@@ -73,21 +73,26 @@ export const Userprofile = props => {
 										/>
 									</div>
 									<h5 className="mb-1 text-white">
-										{/* {profiles.first_name + " " + profiles.last_name} */}
+										{store.profile != null && store.profile.first_name} <span />
+										{store.profile != null && store.profile.last_name}
+										{/* {store.profile != null &&
+											store.profile.first_name + " " + store.profile != null &&
+											store.profile.last_name} */}
 									</h5>
 								</div>
 								<div className="card-body">
 									<ul className="list-group shadow-none">
 										<li className="list-group-item">
 											<div className="list-icon">
-												<i className="fa fa-phone-square" />
+												<i className="fa fa-birthday-cake" />
 											</div>
 											<div className="list-details">
 												<span>
-													{/* {profiles.phone} */}
-													Phone
+													{store.profile != null && store.profile.birthday.slice(0, 2)}/
+													{store.profile != null && store.profile.birthday.slice(2, 4)}/
+													{store.profile != null && store.profile.birthday.slice(4, 8)}
 												</span>
-												<small>Mobile Number</small>
+												<small>Birthday</small>
 											</div>
 										</li>
 										<li className="list-group-item">
@@ -174,76 +179,26 @@ export const Userprofile = props => {
 												</h5>
 
 												{/* FRIEND LIST */}
-												{/* <div className="col-md-12">
-												<div className="list-group">
-													{userFriends.map((friend, index) => {
-														return (
-															<Card
-																key={index}
-																id={friend.id}
-																firstname={friend.firstname}
-																lastname={friend.lastname}
-																city={friend.city}
-																//onDelete={handleDelete(friend.id)}
-															/>
-														);
-													})}
+												<div className="col-md-12">
+													<div className="list-group">
+														{userFriends.map((friend, index) => {
+															return (
+																<Card
+																	key={index}
+																	id={friend.id}
+																	firstname={friend.firstname}
+																	lastname={friend.lastname}
+																	city={friend.city}
+																	//onDelete={handleDelete(friend.id)}
+																/>
+															);
+														})}
+													</div>
 												</div>
-											</div> */}
 											</div>
 										</div>
 										{/* <!--/row--> */}
 									</div>
-									{/* <div className="tab-pane" id="messages">
-									<div className="alert alert-info alert-dismissible" role="alert">
-										<button type="button" className="close" data-dismiss="alert">
-											×
-										</button>
-										<div className="alert-icon">
-											<i className="icon-info" />
-										</div>
-										<div className="alert-message">
-											<span>
-												<strong>Info!</strong> Lorem Ipsum is simply dummy text.
-											</span>
-										</div>
-									</div>
-									<table className="table table-hover table-striped">
-										<tbody>
-											<tr>
-												<td>
-													<span className="float-right font-weight-bold">3 hrs ago</span> Here
-													is your a link to the latest summary report from the..
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<span className="float-right font-weight-bold">Yesterday</span>{" "}
-													There has been a request on your account since that was..
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<span className="float-right font-weight-bold">9/10</span> Porttitor
-													vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia
-													rhoncus.
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<span className="float-right font-weight-bold">9/4</span> Vestibulum
-													tincidunt ullamcorper eros eget luctus.
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<span className="float-right font-weight-bold">9/4</span>{" "}
-													Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div> */}
 									<div className="tab-pane" id="edit">
 										{/* USER PROFILE EDIT */}
 
@@ -254,7 +209,7 @@ export const Userprofile = props => {
 												</label>
 												<div className="col-lg-9">
 													<input
-														value={firstname}
+														value={store.profile != null && store.profile.first_name}
 														className="form-control"
 														type="text"
 														onChange={e => setFirstname(e.target.value)}
@@ -267,7 +222,7 @@ export const Userprofile = props => {
 												</label>
 												<div className="col-lg-9">
 													<input
-														value={lastname}
+														value={store.profile != null && store.profile.last_name}
 														className="form-control"
 														type="text"
 														onChange={e => setLastname(e.target.value)}
@@ -280,7 +235,7 @@ export const Userprofile = props => {
 												</label>
 												<div className="col-lg-9">
 													<input
-														value={email}
+														value={store.profile != null && store.profile.email}
 														className="form-control"
 														type="email"
 														onChange={e => setEmail(e.target.value)}
@@ -303,7 +258,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														// value={username}
+														value={store.profile != null && store.profile.birthday}
 														onChange={e => setUsername(e.target.value)}
 													/>
 												</div>
@@ -316,7 +271,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														value={address}
+														value={store.profile != null && store.profile.address}
 														placeholder="Street"
 														onChange={e => setAddress(e.target.value)}
 													/>
@@ -328,7 +283,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														value={city}
+														value={store.profile != null && store.profile.city}
 														placeholder="City"
 														onChange={e => setCity(e.target.value)}
 													/>
@@ -337,7 +292,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														value={zipcode}
+														value={store.profile != null && store.profile.zipcode}
 														placeholder="Zipcode"
 														onChange={e => setZipcode(e.target.value)}
 													/>
@@ -346,7 +301,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														value={state}
+														value={store.profile != null && store.profile.state}
 														placeholder="State"
 														onChange={e => setState(e.target.value)}
 													/>
@@ -360,7 +315,7 @@ export const Userprofile = props => {
 													<input
 														className="form-control"
 														type="text"
-														// value={username}
+														value={store.profile != null && store.profile.nick_name}
 														onChange={e => setState(e.target.value)}
 													/>
 												</div>
@@ -372,8 +327,8 @@ export const Userprofile = props => {
 												<div className="col-lg-9">
 													<input
 														className="form-control"
-														type="password"
-														value="11111122333"
+														type="text"
+														value={store.profile != null && store.profile.password}
 													/>
 												</div>
 											</div>
@@ -419,11 +374,6 @@ export const Userprofile = props => {
 										</form>
 									</div>
 								</div>
-							</div>
-							<div className="col-md-12">
-								<Link to="/dash">
-									<button className="btn btn-primary float-right">Back home</button>
-								</Link>
 							</div>
 						</div>
 					</div>

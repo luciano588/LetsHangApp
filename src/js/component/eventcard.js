@@ -5,7 +5,13 @@ import { Context } from "../store/appContext";
 import Button from "react-bootstrap/Button";
 import partyhat from "/workspace/LetsHangApp/src/img/partyhat.png";
 
+import { Info } from "../component/eventinfo";
+
 export const Party = props => {
+	const { store, actions } = useContext(Context);
+	const party = store.party != null && store.party;
+	console.log(party);
+
 	const handleDelete = friend => {
 		setSelectedContact(friend);
 		setModal(true);
@@ -16,17 +22,16 @@ export const Party = props => {
 			<img src={partyhat} alt="partyhat" width="50px" className="rounded-sm ml-n2" />
 			<div className="flex-fill pl-3 pr-3">
 				<div>
-					<a href="#" className="text-dark font-weight-600">
-						{/* {props.eventname} */}
-					</a>
+					<span className="text-dark font-weight-600">
+						{store.party != null && store.party.event_organizer}
+					</span>
 				</div>
-				<div className="text-muted fs-13px">{/* {props.city} */}</div>
+				<div className="text-muted fs-13px">{store.party != null && store.party.event_location}</div>
 			</div>
-			<a className="btn btn-outline-primary">
+			<Info className="btn btn-outline-primary">
 				{/* onClick={() => props.onDelete()} */}
 				See Event
-				{/* Card === /userprofile || Card === /eventmain ? "Remove Friend" : "Invite Friend" onClick={() => setInvite ("Remove Invite") }*/}
-			</a>
+			</Info>
 		</div>
 	);
 };
