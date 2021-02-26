@@ -301,7 +301,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			syncData: () => {
 				let store = getStore();
-				fetch(`${baseURL}/events/id`)
+				fetch(`${baseURL}/events/all`)
 					.then(response => {
 						// if (!response.ok) throw new Error(response.statusText);
 						return response.json();
@@ -311,7 +311,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({
 							party: data
 						});
-						console.log(store.party.id);
+						console.log(store.party);
 					});
 			}
 		}

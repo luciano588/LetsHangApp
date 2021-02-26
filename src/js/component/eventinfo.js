@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
-export const Info = () => {
+export const Info = props => {
 	const { store, actions } = useContext(Context);
 	const [show, setShow] = useState(false);
 
@@ -37,28 +38,31 @@ export const Info = () => {
 							/>
 							<div className="card-body">
 								<h4 className="card-title">
-									{store.event != null && store.event.event_name}
+									{store.party != null && store.party[props.id_for_event].event_name}
 									Graduation PARTY!
 								</h4>
 								<p className="card-text">
-									Created by {store.event != null && store.event.event_organizer} Armando
+									Created by {store.party != null && store.party[props.id_for_event].event_organizer}{" "}
+									Armando
 								</p>
 							</div>
 							<ul className="list-group list-group-flush">
 								<li className="list-group-item">
 									<h5>About Event</h5>
-									{store.event != null && store.event.event_description} party for graduation
+									{store.party != null && store.party[props.id_for_event].event_description} party for
+									graduation
 								</li>
 								<li className="list-group-item">
 									<h5>Event Details</h5>
 									<p>
-										<strong>Addresss:</strong> {store.event != null && store.event.event_address}
+										<strong>Addresss:</strong>{" "}
+										{store.party != null && store.party[props.id_for_event].event_address}
 										3354 sw 50th st
 									</p>
 								</li>
 								<li className="list-group-item">
 									<h5>Invitees</h5> luciano@letshangapp.com
-									{store.event != null && store.event.event_invitees}
+									{store.party != null && store.party[props.id_for_event].invitees}
 								</li>
 							</ul>
 						</div>
@@ -77,4 +81,8 @@ export const Info = () => {
 			</Modal>
 		</>
 	);
+};
+
+Info.propTypes = {
+	id_for_event: PropTypes.number
 };

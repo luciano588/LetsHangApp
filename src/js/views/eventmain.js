@@ -13,9 +13,7 @@ import logo from "/workspace/LetsHangApp/src/img/logo.png";
 
 export const Eventmain = props => {
 	const { store, actions } = useContext(Context);
-	let profiles = store.profiles[0];
-	let userFriends = store.profiles[0].friends;
-
+	const params = useParams();
 	return (
 		<>
 			<Navbar />
@@ -78,17 +76,7 @@ export const Eventmain = props => {
 
 								<div className="col-md-6 justify-center">
 									<div className="list-group justify-center">
-										{userFriends.map((friend, index) => {
-											return (
-												<Party
-													key={index}
-													id={friend.id}
-													eventname={friend.eventname}
-													city={friend.city}
-													//onDelete={handleDelete(friend.id)}
-												/>
-											);
-										})}
+										<Party />
 									</div>
 								</div>
 							</div>
