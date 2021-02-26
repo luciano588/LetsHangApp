@@ -36,7 +36,7 @@ class GoogleMapEvent extends Component {
 		return (
 			<div style={{ height: "500px", width: "100%" }}>
 				<GoogleMapReact
-					bootstrapURLKeys={{ key: "AIzaSyBEAxk3n0Q0affZEve_2CqwFq-Q4xUS8hc" }}
+					bootstrapURLKeys={{ key: "AIzaSyAL41VEWiTONkr37_fCDtDGllDt_Kw0skg" }}
 					defaultCenter={this.props.center}
 					defaultZoom={this.props.zoom}>
 					{this.props.events.map((event, index) => {
