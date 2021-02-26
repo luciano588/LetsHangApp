@@ -4,16 +4,20 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import GoogleMap from "../component/googleMap";
 import "../../styles/zoom.scss";
+import { Navbar } from "../component/navbar";
 
 export const Dashboard = props => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div>
-			{" "}
+		<>
+			<Navbar />
 			<div>
-				<GoogleMap location={store.location} markers={store.markers} />
+				{" "}
+				<div>
+					<GoogleMap location={store.location} markers={store.markers} />
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

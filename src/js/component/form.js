@@ -9,10 +9,10 @@ export const Invite = () => {
 	const { store, actions } = useContext(Context);
 	// const [color, setColor] = useState;
 	const [show, setShow] = useState(false);
-	const [name, setName] = useState(null);
+	const [event_organizer, setEvent_organizer] = useState(null);
 	const [email, setEmail] = useState(null);
 	const [phone, setPhone] = useState(null);
-	const [address, setAddress] = useState(null);
+	const [event_address, setEvent_address] = useState(null);
 
 	let profiles = store.profiles[0];
 	let userFriends = store.profiles[0].friends;
@@ -29,7 +29,7 @@ export const Invite = () => {
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						<h1 className="text-center mt-5">Send Invite</h1>
+						<h1 className="text-center mt-5">Make An Event</h1>
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
@@ -37,7 +37,7 @@ export const Invite = () => {
 						<div className="form-group">
 							<label>Your Name</label>
 							<input
-								value={name}
+								value={event_organizer}
 								type="text"
 								className="form-control"
 								placeholder="Full Name"
@@ -67,7 +67,7 @@ export const Invite = () => {
 						<div className="form-group">
 							<label>Location Address</label>
 							<input
-								value={address}
+								value={event_address}
 								type="text"
 								className="form-control"
 								placeholder="Enter address"
@@ -75,9 +75,7 @@ export const Invite = () => {
 							/>
 						</div>
 						<div className="form-group">
-							<label>Friends</label>
-
-							<div className="col-md-12">
+							{/* <div className="col-md-12">
 								<div className="list-group">
 									{userFriends.map((friend, index) => {
 										return (
@@ -94,7 +92,7 @@ export const Invite = () => {
 										);
 									})}
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</form>
 				</Modal.Body>

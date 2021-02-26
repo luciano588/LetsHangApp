@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Dashboard } from "./views/dashboard";
+import { DashboardEvent } from "./views/dashboardEvent";
 import { Userprofile } from "./views/userprofile";
 import { Eventmain } from "./views/eventmain";
 import injectContext from "./store/appContext";
@@ -25,7 +26,7 @@ const Layout = () => {
 		<div className="d-flex flex-column ">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					{/* <Navbar /> */}
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -35,6 +36,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/dash">
 							<Dashboard />
+						</Route>
+						<Route exact path="/eventmap">
+							<DashboardEvent />
 						</Route>
 						<Route exact path="/userprofile">
 							<Userprofile />

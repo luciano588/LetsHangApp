@@ -3,6 +3,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 	const baseURL = "https://3000-emerald-porpoise-8mb52dkw.ws-us03.gitpod.io";
 	return {
 		store: {
+			events: [
+				{
+					id: 1,
+					lat: "25.83707961701389",
+					lng: "-80.12944893540543"
+				},
+				{
+					id: 2,
+					lat: "25.74463862348731",
+					lng: "-80.21040829108496"
+				},
+				{
+					id: 3,
+					lat: "25.80145892585477",
+					lng: "-80.19959950074848"
+				},
+				{
+					id: 4,
+					lat: "25.76573314323745",
+					lng: " -80.1326046255543"
+				},
+				{
+					id: 5,
+					lat: "25.78023073920347",
+					lng: "-80.13068806987249"
+				},
+				{
+					id: 6,
+					lat: "25.766955117396357",
+					lng: "-80.19324427003448347"
+				}
+			],
 			markers: [
 				{
 					id: 1,
@@ -93,6 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: null,
 			contact: [],
 			token: null,
+			profile: null,
 			protected: null
 		},
 		actions: {
@@ -188,8 +221,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => console.error(err));
 			},
+
+			getUserProfile: async user_id => {
+				let response = await fetch(`${baseURL}user/${store.token.user.id}`);
+				let user = await response.json();
+				if (response.ok) {
+					setStore({ token: user });
+				}
+			},
+
 			logout: () => {
-				setStore({ token: null });
+				setStore({
+					token: null,
+					profile: null
+				});
 			},
 			login: async (email, password) => {
 				let store = getStore();
@@ -214,8 +259,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						alert("logged in");
 						setStore({
-							token: data
+							token: data,
+							profile: data.user
 						});
+						console.log(store.profile);
+						console.log(store.profile.user);
 					})
 					.catch(err => console.error(err));
 			}
