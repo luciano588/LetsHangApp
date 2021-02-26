@@ -18,6 +18,14 @@ export const Invite = () => {
 
 	let profiles = store.profiles[0];
 	let userFriends = store.profiles[0].friends;
+	function inputclearing() {
+		setEvent_organizer("");
+		setEvent_name("");
+		setEvent_description("");
+		setEvent_address("");
+		setEvent_location("");
+		setInvitees("");
+	}
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -133,12 +141,18 @@ export const Invite = () => {
 								invitees: invitees
 							});
 							{
-								setTimeout(() => {
-									actions.syncData();
-								}, 2000);
+								actions.syncData();
 							}
 							{
-								handleClose();
+								setTimeout(() => {
+									handleClose();
+								}, 3000);
+							}
+							{
+								actions.syncData();
+							}
+							{
+								inputclearing();
 							}
 						}}>
 						Create Event
