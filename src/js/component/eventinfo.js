@@ -39,29 +39,27 @@ export const Info = props => {
 							<div className="card-body">
 								<h4 className="card-title">
 									{store.party != null && store.party[props.id_for_event].event_name}
-									Graduation PARTY!
 								</h4>
 								<p className="card-text">
 									Created by {store.party != null && store.party[props.id_for_event].event_organizer}{" "}
-									Armando
+									
 								</p>
 							</div>
 							<ul className="list-group list-group-flush">
 								<li className="list-group-item">
 									<h5>About Event</h5>
-									{store.party != null && store.party[props.id_for_event].event_description} party for
-									graduation
+									{store.party != null && store.party[props.id_for_event].event_description} 
 								</li>
 								<li className="list-group-item">
 									<h5>Event Details</h5>
 									<p>
 										<strong>Addresss:</strong>{" "}
 										{store.party != null && store.party[props.id_for_event].event_address}
-										3354 sw 50th st
+										
 									</p>
 								</li>
 								<li className="list-group-item">
-									<h5>Invitees</h5> luciano@letshangapp.com
+									<h5>Invitees</h5> 
 									{store.party != null && store.party[props.id_for_event].invitees}
 								</li>
 							</ul>
