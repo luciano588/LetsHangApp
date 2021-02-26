@@ -42,24 +42,22 @@ export const Info = props => {
 								</h4>
 								<p className="card-text">
 									Created by {store.party != null && store.party[props.id_for_event].event_organizer}{" "}
-									
 								</p>
 							</div>
 							<ul className="list-group list-group-flush">
 								<li className="list-group-item">
 									<h5>About Event</h5>
-									{store.party != null && store.party[props.id_for_event].event_description} 
+									{store.party != null && store.party[props.id_for_event].event_description}
 								</li>
 								<li className="list-group-item">
 									<h5>Event Details</h5>
 									<p>
 										<strong>Addresss:</strong>{" "}
 										{store.party != null && store.party[props.id_for_event].event_address}
-										
 									</p>
 								</li>
 								<li className="list-group-item">
-									<h5>Invitees</h5> 
+									<h5>Invitees</h5>
 									{store.party != null && store.party[props.id_for_event].invitees}
 								</li>
 							</ul>

@@ -133,6 +133,11 @@ export const Invite = () => {
 								invitees: invitees
 							});
 							{
+								setTimeout(() => {
+									actions.syncData();
+								}, 2000);
+							}
+							{
 								handleClose();
 							}
 						}}>

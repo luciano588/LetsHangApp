@@ -27,11 +27,12 @@ export const Party = props => {
 							<div className="flex-fill pl-3 pr-3">
 								<div>
 									<span className="text-dark font-weight-600">
-										Event Organizer: {store.party != null && party.event_organizer}
+										Event Organizer: <span />
+										{store.party != null && party.event_organizer}
 									</span>
 								</div>
 								<div className="text-dark fs-13px">
-									Event location:
+									Event location: <span />
 									{store.party != null && party.event_location}
 								</div>
 							</div>
