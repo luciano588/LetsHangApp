@@ -35,21 +35,17 @@ export const Eventmain = props => {
 				</div>
 				<hr className="m-0" />
 
-				<div className="container">
-					<div className="text-center py-5">
-						<div>
-							<div>
-								<GoogleMapEvent
-									location={store.location}
-									events={store.events}
-									markers={store.markers}
-								/>
-							</div>
-						</div>
-
-						<div className="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto" />
+				{/* <div className="container"> */}
+				{/* <div className="text-center py-5"> */}
+				<div>
+					<div>
+						<GoogleMapEvent location={store.location} events={store.events} markers={store.markers} />
 					</div>
 				</div>
+
+				<div className="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto" />
+				{/* </div>
+				</div> */}
 				<hr className="m-0" />
 
 				<div className="card-body">
